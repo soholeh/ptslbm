@@ -85,23 +85,20 @@ if (isset($_SESSION['admin']) OR (isset($_SESSION['p_yuridus']) OR (isset($_SESS
                                     </a>
                                 </nav>
                             </div>
-                            <a class="nav-link collapsed bg-danger text-white" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                            <a class="nav-link bg-danger text-white" href="<?= base_url('admin/pelaporan');?>">
                                 <div class="sb-nav-link-icon"></div>
                                 Pelaporan
-                                <div class="sb-sidenav-collapse-arrow"></div>
                             </a>
-                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link bg-danger text-white" href="<?= base_url('admin/laporan/per_periode.php');?>">
+                                    <a class="nav-link bg-danger text-white" href="<?= base_url('admin/pelaporan/pelaporan_pengukuran');?>">
                                         <div class="sb-nav-link-icon"></div>
                                         Pelaporan Pengukuran
                                     </a>
-                                    <a class="nav-link bg-danger text-white" href="<?= base_url('admin/laporan/per_menu.php');?>">
+                                    <a class="nav-link bg-danger text-white" href="<?= base_url('admin/pelaporan/pelaporan_yuridis');?>">
                                         <div class="sb-nav-link-icon"></div>
                                         Pelaporan Yuridis
                                     </a>
                                 </nav>
-                            </div>
 
                             <!-- <a class="nav-link" href="<?= base_url('admin/grafik/data.php');?>">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-bar mr-2"></i></div>
