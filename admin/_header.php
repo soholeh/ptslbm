@@ -98,6 +98,10 @@ if (isset($_SESSION['admin']) OR (isset($_SESSION['p_yuridus']) OR (isset($_SESS
                                         <div class="sb-nav-link-icon"></div>
                                         Pelaporan Yuridis
                                     </a>
+                                    <a class="nav-link bg-danger text-white" href="<?= base_url('admin/pelaporan/pelaporan_yg_sdh_diukur');?>">
+                                        <div class="sb-nav-link-icon"></div>
+                                        Pelaporan Yang Sudah Diukur
+                                    </a>
                                 </nav>
 
                             <!-- <a class="nav-link" href="<?= base_url('admin/grafik/data.php');?>">
