@@ -140,7 +140,7 @@ function tambah($koneksi){
 											?>
 								            <option disabled selected value="">-Jenis Kelamin-</option>
 								            <?php foreach ($datajk as $key => $value):?>
-								            <option value="<?= $value["id_jk"] ?>"><?= $value["jenis_kelamin"] ?></option>
+								            <option value="<?= $value["id_jk"] ?>"><?= $value["nama_jk"] ?></option>
 								            <?php endforeach ?>
 										</select>
 							        </td>
@@ -275,7 +275,7 @@ function tampil_data($koneksi){
 				<td><?php echo $data['no_telp']; ?></td>
 				<td><?php echo $data['nama_desa']; ?>, <?= $data['nama_kecamatan'];?>, <?= $data['kabupaten'];?></td>
 				<td>
-					<a href="entri_pemohon.php?aksi=update&id=<?php echo $data['nik']; ?>&nama_pemohon=<?php echo $data['nama_pemohon']; ?>&no_telp=<?php echo $data['no_telp']; ?>&alamat=<?php echo $data['alamat']; ?>
+					<a href="entri_pemohon.php?aksi=update&id=<?php echo $data['nik']; ?>&nama_pemohon=<?php echo $data['nama_pemohon']; ?>&no_telp=<?php echo $data['no_telp']; ?>
 							&tanggal_lahir=<?php echo $data['tanggal_lahir'];?>&tempat_lahir=<?php echo $data['tempat_lahir'];?>&pekerjaan=<?php echo $data['pekerjaan'];?>
 							&agama=<?php echo $data['agama'];?>&id_jk=<?php echo $data['id_jk'];?>&id_desa=<?php echo $data['id_desa'];?>
 							&id_kecamatan=<?php echo $data['id_kecamatan'];?>&kabupaten=<?php echo $data['kabupaten'];?>">Edit</a>
