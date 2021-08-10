@@ -136,7 +136,7 @@ function tampil_data($koneksi){
 					<a href="index.php?aksi=delete&id=<?php echo $data['id']; ?>">Hapus</a>
 				</td>
 				<td>
-					<a href="entri/entri_risalah.php">Lihat</a>
+					<a href="entri/entri_risalah_panitia.php">Lihat</a>
 				</td>
 			</tr>
 			
