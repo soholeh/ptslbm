@@ -3,7 +3,7 @@ session_start();
 //setting default timezone
 date_default_timezone_set('Asia/Jakarta');
 // koneksi
-$koneksi = mysqli_connect('localhost', 'root', '', 'ptslbm');
+$koneksi = mysqli_connect('localhost', 'root', '', 'pts');
 if(mysqli_connect_errno()) {
     echo mysqli_connect_error();
 }

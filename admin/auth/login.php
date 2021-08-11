@@ -33,7 +33,7 @@ if (isset($_SESSION['admin'])) {
                             <div class="col-lg-12 text-center mt-5">
                                 <img class="rounded-circle img-thumbnail" src="../_assets/bener.jpg" alt="" width="100" height="100">
                             </div>
-                            <div class="col-lg-10 offset-lg-1">
+                            <div class="col-lg-8 offset-lg-2">
                                 <div class="card shadow-lg border-0 rounded-lg mt-4">
                                     <div class="card-header text-center bg-transparent">                                   
                                         <h3>Pendaftaran Tanah Sistematis Lengkap (PTSL)</h3>
@@ -43,22 +43,33 @@ if (isset($_SESSION['admin'])) {
                                     <div class="card-body">
                                         <form method="post">
                                               <div class="form-group row">
+                                                <div class="col-sm-2"></div>
                                                 <label for="staticuser_nama" class="col-sm-2 col-form-label">User Nama :</label>
-                                                <div class="col-sm-10">
+                                                <div class="col-sm-6">
                                                   <input type="text" name="user_nama" class="form-control" required autofocus>
                                                 </div>
                                               </div>
                                               <div class="form-group row">
+                                                <div class="col-sm-2"></div>
                                                 <label for="inputPassword" class="col-sm-2 col-form-label">Password :</label>
-                                                <div class="col-sm-10">
+                                                <div class="col-sm-6">
                                                   <input type="password" name="password" class="form-control" id="inputPassword" required>
                                                 </div>
                                               </div>
+                                              <div class="row">
+                                                  <div class="col-md-4"></div>
 
-                                            <div class="form-group d-flex align-items-center justify-content-between mt-3 mb-0">
-                                                <button class="btn btn-lg btn-primary btn-block" name="login">Login</button>
-                                            </div>
+                                                  <div class="col-md-6">
+                                                    <div class="form-group d-flex align-items-center justify-content-center mt-3 mb-0">
+                                                        <button class="btn btn-lg btn-primary btn-block" name="login">Login</button>
+                                                    </div>
+                                                    </br>
+                        <p class="text-center">Belum memiliki akun? <a href="daftar.php" class="text-success">Daftar</a> sekarang.</p>
+                                                  </div>
+                                              </div>
+                                              
                                         </form>
+                                        
 <?php
 if (isset($_POST['login'])) {
     $user_nama = $_POST['user_nama'];
