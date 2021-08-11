@@ -413,7 +413,7 @@ function ubah($koneksi){
 										<option disabled value="">-Pilih Jenis Kelamin-</option>
 										<?php foreach ($datajk as $key => $value):?>
 										<option value="<?= $value["id_jk"] ?>" <?php if($jk["id_jk"]==$value["id_jk"]){ echo "selected"; } ?> >
-										<?= $value["jenis_kelamin"] ?>
+										<?= $value["nama_jk"] ?>
 										</option>
 										<?php endforeach ?>
 									</select>
@@ -476,7 +476,7 @@ function ubah($koneksi){
 									<td> : <input type="text" name="kabupaten" value="Bener Meriah" /></td>
 								</tr>
 							    <tr>
-									<td>Kecamatan</td> 
+									<td>Jenis Pemohon</td> 
 								<td> : 
 									<select name="id_jenis_pemohon" required>
 										<?php 

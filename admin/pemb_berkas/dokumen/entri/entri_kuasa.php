@@ -297,7 +297,7 @@ function ubah($koneksi){
                                 <td>NIK </td>
                             </div>
                             <div class="col-md-3">
-                                <td> : <input type="number" name="nik_kuasa" value="<?php echo $_GET['nik_kuasa'] ?>" required /></td>
+                                <td> : <input type="number" name="nik_kuasa" value="<?php echo $_GET['nik'] ?>" required /></td>
                             </div>      
                             <div class="col-md-3">
                                 <td>Jenis Kelamin </td>
