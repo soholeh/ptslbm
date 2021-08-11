@@ -1,4 +1,4 @@
-<?php $title = "Entri Data Pihak Pertama";
+<?php $title = "Entri Data  Pihak_pertama";
 include_once('../../../_header.php');
 
 ?>
@@ -14,7 +14,7 @@ include_once('../../../_header.php');
                     //     } 
                      ?>
                     <div class="container-fluid">
-                        <p>Entri Data Pihak (I) Pertama Nomor Berkas :</p>
+                        <p>Entri Data  Pihak_pertama Nomor Berkas :</p>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">
                                 <a href="<?= base_url('admin/pemb_berkas');?>"> Berkas</a>
@@ -27,8 +27,6 @@ include_once('../../../_header.php');
                             </li>
                         </ol>
 
-
-
 <?php
 
 // --- Fngsi tambah data (Create)
@@ -37,7 +35,7 @@ function tambah($koneksi){
     if (isset($_POST['btn_simpan'])){
         $nik_pihak_pertama = $_POST['nik_pihak_pertama'];
         $id_jk = $_POST['id_jk'];
-        $nm_pihak_pertama = $_POST['nm_pihak_pertama'];
+        $nama_pihak_pertama = $_POST['nama_pihak_pertama'];
         $temp_lahir_pihak_pertama = $_POST['temp_lahir_pihak_pertama'];
         $desa_pihak_pertama = $_POST['desa_pihak_pertama'];
         $tgl_lahir_pihak_pertama = $_POST['tgl_lahir_pihak_pertama'];
@@ -47,11 +45,11 @@ function tambah($koneksi){
         $agama_pihak_pertama = $_POST['agama_pihak_pertama'];
 
         
-        if(!empty($nik_pihak_pertama) && !empty($id_jk) && !empty($nm_pihak_pertama) && !empty($temp_lahir_pihak_pertama)){
+        if(!empty($nik_pihak_pertama) && !empty($id_jk) && !empty($nama_pihak_pertama) && !empty($temp_lahir_pihak_pertama)){
 
             $sql ="INSERT INTO pihak_pertama
             (nik_pihak_pertama,id_jk,nama_pihak_pertama,temp_lahir_pihak_pertama,desa_pihak_pertama,tgl_lahir_pihak_pertama,kecamatan_pihak_pertama,pekerjaan_pihak_pertama,kabupaten_pihak_pertama,agama_pihak_pertama)
-            VALUES('$nik_pihak_pertama','$id_jk','$nm_pihak_pertama','$temp_lahir_pihak_pertama','$desa_pihak_pertama','$tgl_lahir_pihak_pertama','$kecamatan_pihak_pertama','$pekerjaan_pihak_pertama','$kabupaten_pihak_pertama','$agama_pihak_pertama')";
+            VALUES('$nik_pihak_pertama','$id_jk','$nama_pihak_pertama','$temp_lahir_pihak_pertama','$desa_pihak_pertama','$tgl_lahir_pihak_pertama','$kecamatan_pihak_pertama','$pekerjaan_pihak_pertama','$kabupaten_pihak_pertama','$agama_pihak_pertama')";
 
             $simpan = mysqli_query($koneksi, $sql);
             if($simpan && isset($_GET['aksi'])){
@@ -102,10 +100,10 @@ function tambah($koneksi){
                                 </tr>
                                 <tr>
                                     <div class="col-md-3">
-                                        <td>Nama Pihak_pertama </td>
+                                        <td>Nama </td>
                                     </div>
                                     <div class="col-md-3">
-                                        <td> : <input type="text" name="nm_pihak_pertama" required /></td>
+                                        <td> : <input type="text" name="nama_pihak_pertama" required /></td>
                                     </div>      
                                     <div class="col-md-3">
                                         <td>Alamat </td>
@@ -202,7 +200,7 @@ function tampil_data($koneksi){
         echo "<thead>";
             echo "<tr>";
             echo "<th>No</th>
-                <th>Nama Pihak_pertama</th>
+                <th>Nama</th>
                 <th>NIK</th>
                 <th>Desa</th>
                 <th>Kecamatan</th>
@@ -222,7 +220,7 @@ function tampil_data($koneksi){
                 <td><?php echo $data['kecamatan_pihak_pertama']; ?></td>
                 <td><?php echo $data['kabupaten_pihak_pertama']; ?></td>
                 <td>
-                    <a href="entri_pihak_pertama.php?aksi=update&id=<?php echo $data['id_pihak_pertama']; ?>&nik=<?php echo $data['nik_pihak_pertama']; ?>&jk=<?php echo $data['id_jk']; ?>&nm_pihak_pertama=<?php echo $data['nama_pihak_pertama']; ?>&temp_lahir_pihak_pertama=<?php echo $data['temp_lahir_pihak_pertama']; ?>&desa_pihak_pertama=<?php echo $data['desa_pihak_pertama']; ?>&tgl_lahir_pihak_pertama=<?php echo $data['tgl_lahir_pihak_pertama']; ?>&kecamatan_pihak_pertama=<?php echo $data['kecamatan_pihak_pertama']; ?>&pekerjaan_pihak_pertama=<?php echo $data['pekerjaan_pihak_pertama']; ?>&kabupaten_pihak_pertama=<?php echo $data['kabupaten_pihak_pertama']; ?>&agama_pihak_pertama=<?php echo $data['agama_pihak_pertama']; ?>">Edit</a>
+                    <a href="entri_pihak_pertama.php?aksi=update&id=<?php echo $data['id_pihak_pertama']; ?>&nik_pihak_pertama=<?php echo $data['nik_pihak_pertama']; ?>&jk=<?php echo $data['id_jk']; ?>&nama_pihak_pertama=<?php echo $data['nama_pihak_pertama']; ?>&temp_lahir_pihak_pertama=<?php echo $data['temp_lahir_pihak_pertama']; ?>&desa_pihak_pertama=<?php echo $data['desa_pihak_pertama']; ?>&tgl_lahir_pihak_pertama=<?php echo $data['tgl_lahir_pihak_pertama']; ?>&kecamatan_pihak_pertama=<?php echo $data['kecamatan_pihak_pertama']; ?>&pekerjaan_pihak_pertama=<?php echo $data['pekerjaan_pihak_pertama']; ?>&kabupaten_pihak_pertama=<?php echo $data['kabupaten_pihak_pertama']; ?>&agama_pihak_pertama=<?php echo $data['agama_pihak_pertama']; ?>">Edit</a>
                 </td>
                 <td>
                     <a href="entri_pihak_pertama.php?aksi=delete&id=<?php echo $data['id_pihak_pertama']; ?>" onClick="return confirm('Yakin akan menghapus pihak_pertama <?= $data['nama_pihak_pertama']; ?>?')">Hapus</a>
@@ -245,8 +243,9 @@ function ubah($koneksi){
     // ubah data
     if(isset($_POST['btn_ubah'])){
         $id_pihak_pertama = $_POST['id_pihak_pertama'];
+        $nik_pihak_pertama = $_POST['nik_pihak_pertama'];
         $id_jk = $_POST['id_jk'];
-        $nm_pihak_pertama = $_POST['nm_pihak_pertama'];
+        $nama_pihak_pertama = $_POST['nama_pihak_pertama'];
         $temp_lahir_pihak_pertama = $_POST['temp_lahir_pihak_pertama'];
         $desa_pihak_pertama = $_POST['desa_pihak_pertama'];
         $tgl_lahir_pihak_pertama = $_POST['tgl_lahir_pihak_pertama'];
@@ -256,11 +255,12 @@ function ubah($koneksi){
         $agama_pihak_pertama = $_POST['agama_pihak_pertama'];
 
         
-        if(!empty($nik) && !empty($id_jk) && !empty($nm_pihak_pertama)&& !empty($temp_lahir_pihak_pertama)){
-            $sql_update = "UPDATE pihak_pertama SET nik_pihak_pertama='$nik', id_jk='$id_jk',
-                nama_pihak_pertama='$nm_pihak_pertama',
+        if(!empty($nik_pihak_pertama) && !empty($id_jk) && !empty($nama_pihak_pertama) && !empty($temp_lahir_pihak_pertama)){
+            $sql_update = "UPDATE pihak_pertama SET nik_pihak_pertama='$nik_pihak_pertama', id_jk='$id_jk',
+                nama_pihak_pertama='$nama_pihak_pertama',
                 temp_lahir_pihak_pertama='$temp_lahir_pihak_pertama', desa_pihak_pertama='$desa_pihak_pertama',
-                tgl_lahir_pihak_pertama='$tgl_lahir_pihak_pertama', kecamatan_pihak_pertama='$kecamatan_pihak_pertama', pekerjaan_pihak_pertama='$pekerjaan_pihak_pertama', kabupaten_pihak_pertama='$kabupaten_pihak_pertama', agama_pihak_pertama='$agama_pihak_pertama' WHERE id_pihak_pertama=$id_pihak_pertama";
+                tgl_lahir_pihak_pertama='$tgl_lahir_pihak_pertama', kecamatan_pihak_pertama='$kecamatan_pihak_pertama', pekerjaan_pihak_pertama='$pekerjaan_pihak_pertama', 
+                kabupaten_pihak_pertama='$kabupaten_pihak_pertama', agama_pihak_pertama='$agama_pihak_pertama' WHERE id_pihak_pertama=$id_pihak_pertama";
             $update = mysqli_query($koneksi, $sql_update);
             if($update && isset($_GET['aksi'])){
                 if($_GET['aksi'] == 'update'){
@@ -329,7 +329,7 @@ function ubah($koneksi){
                                 <td>Nama Pihak_pertama </td>
                             </div>
                             <div class="col-md-3">
-                                <td> : <input type="text" name="nm_pihak_pertama" value="<?php echo $_GET['nm_pihak_pertama'] ?>" required /></td>
+                                <td> : <input type="text" name="nama_pihak_pertama" value="<?php echo $_GET['nama_pihak_pertama'] ?>" required /></td>
                             </div>      
                             <div class="col-md-3">
                                 <td>Alamat </td>
@@ -474,5 +474,8 @@ if (isset($_GET['aksi'])){
                     );
             } );
         </script>
+
+
+
 
 

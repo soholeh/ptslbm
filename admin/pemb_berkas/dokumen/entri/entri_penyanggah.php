@@ -1,4 +1,4 @@
-<?php $title = "Entri Data Penyanggah";
+<?php $title = "Entri Data  Penyanggah";
 include_once('../../../_header.php');
 
 ?>
@@ -14,7 +14,7 @@ include_once('../../../_header.php');
                     //     } 
                      ?>
                     <div class="container-fluid">
-                        <p>Entri Data Penyanggah Nomor Berkas :</p>
+                        <p>Entri Data  Penyanggah Nomor Berkas :</p>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">
                                 <a href="<?= base_url('admin/pemb_berkas');?>"> Berkas</a>
@@ -27,8 +27,6 @@ include_once('../../../_header.php');
                             </li>
                         </ol>
 
-
-
 <?php
 
 // --- Fngsi tambah data (Create)
@@ -37,7 +35,7 @@ function tambah($koneksi){
     if (isset($_POST['btn_simpan'])){
         $nik_penyanggah = $_POST['nik_penyanggah'];
         $id_jk = $_POST['id_jk'];
-        $nm_penyanggah = $_POST['nm_penyanggah'];
+        $nama_penyanggah = $_POST['nama_penyanggah'];
         $temp_lahir_penyanggah = $_POST['temp_lahir_penyanggah'];
         $desa_penyanggah = $_POST['desa_penyanggah'];
         $tgl_lahir_penyanggah = $_POST['tgl_lahir_penyanggah'];
@@ -47,11 +45,11 @@ function tambah($koneksi){
         $agama_penyanggah = $_POST['agama_penyanggah'];
 
         
-        if(!empty($nik_penyanggah) && !empty($id_jk) && !empty($nm_penyanggah) && !empty($temp_lahir_penyanggah)){
+        if(!empty($nik_penyanggah) && !empty($id_jk) && !empty($nama_penyanggah) && !empty($temp_lahir_penyanggah)){
 
             $sql ="INSERT INTO penyanggah
             (nik_penyanggah,id_jk,nama_penyanggah,temp_lahir_penyanggah,desa_penyanggah,tgl_lahir_penyanggah,kecamatan_penyanggah,pekerjaan_penyanggah,kabupaten_penyanggah,agama_penyanggah)
-            VALUES('$nik_penyanggah','$id_jk','$nm_penyanggah','$temp_lahir_penyanggah','$desa_penyanggah','$tgl_lahir_penyanggah','$kecamatan_penyanggah','$pekerjaan_penyanggah','$kabupaten_penyanggah','$agama_penyanggah')";
+            VALUES('$nik_penyanggah','$id_jk','$nama_penyanggah','$temp_lahir_penyanggah','$desa_penyanggah','$tgl_lahir_penyanggah','$kecamatan_penyanggah','$pekerjaan_penyanggah','$kabupaten_penyanggah','$agama_penyanggah')";
 
             $simpan = mysqli_query($koneksi, $sql);
             if($simpan && isset($_GET['aksi'])){
@@ -102,10 +100,10 @@ function tambah($koneksi){
                                 </tr>
                                 <tr>
                                     <div class="col-md-3">
-                                        <td>Nama Penyanggah </td>
+                                        <td>Nama </td>
                                     </div>
                                     <div class="col-md-3">
-                                        <td> : <input type="text" name="nm_penyanggah" required /></td>
+                                        <td> : <input type="text" name="nama_penyanggah" required /></td>
                                     </div>      
                                     <div class="col-md-3">
                                         <td>Alamat </td>
@@ -202,7 +200,7 @@ function tampil_data($koneksi){
         echo "<thead>";
             echo "<tr>";
             echo "<th>No</th>
-                <th>Nama Penyanggah</th>
+                <th>Nama</th>
                 <th>NIK</th>
                 <th>Desa</th>
                 <th>Kecamatan</th>
@@ -222,7 +220,7 @@ function tampil_data($koneksi){
                 <td><?php echo $data['kecamatan_penyanggah']; ?></td>
                 <td><?php echo $data['kabupaten_penyanggah']; ?></td>
                 <td>
-                    <a href="entri_penyanggah.php?aksi=update&id=<?php echo $data['id_penyanggah']; ?>&nik=<?php echo $data['nik_penyanggah']; ?>&jk=<?php echo $data['id_jk']; ?>&nm_penyanggah=<?php echo $data['nama_penyanggah']; ?>&temp_lahir_penyanggah=<?php echo $data['temp_lahir_penyanggah']; ?>&desa_penyanggah=<?php echo $data['desa_penyanggah']; ?>&tgl_lahir_penyanggah=<?php echo $data['tgl_lahir_penyanggah']; ?>&kecamatan_penyanggah=<?php echo $data['kecamatan_penyanggah']; ?>&pekerjaan_penyanggah=<?php echo $data['pekerjaan_penyanggah']; ?>&kabupaten_penyanggah=<?php echo $data['kabupaten_penyanggah']; ?>&agama_penyanggah=<?php echo $data['agama_penyanggah']; ?>">Edit</a>
+                    <a href="entri_penyanggah.php?aksi=update&id=<?php echo $data['id_penyanggah']; ?>&nik_penyanggah=<?php echo $data['nik_penyanggah']; ?>&jk=<?php echo $data['id_jk']; ?>&nama_penyanggah=<?php echo $data['nama_penyanggah']; ?>&temp_lahir_penyanggah=<?php echo $data['temp_lahir_penyanggah']; ?>&desa_penyanggah=<?php echo $data['desa_penyanggah']; ?>&tgl_lahir_penyanggah=<?php echo $data['tgl_lahir_penyanggah']; ?>&kecamatan_penyanggah=<?php echo $data['kecamatan_penyanggah']; ?>&pekerjaan_penyanggah=<?php echo $data['pekerjaan_penyanggah']; ?>&kabupaten_penyanggah=<?php echo $data['kabupaten_penyanggah']; ?>&agama_penyanggah=<?php echo $data['agama_penyanggah']; ?>">Edit</a>
                 </td>
                 <td>
                     <a href="entri_penyanggah.php?aksi=delete&id=<?php echo $data['id_penyanggah']; ?>" onClick="return confirm('Yakin akan menghapus penyanggah <?= $data['nama_penyanggah']; ?>?')">Hapus</a>
@@ -247,7 +245,7 @@ function ubah($koneksi){
         $id_penyanggah = $_POST['id_penyanggah'];
         $nik_penyanggah = $_POST['nik_penyanggah'];
         $id_jk = $_POST['id_jk'];
-        $nm_penyanggah = $_POST['nm_penyanggah'];
+        $nama_penyanggah = $_POST['nama_penyanggah'];
         $temp_lahir_penyanggah = $_POST['temp_lahir_penyanggah'];
         $desa_penyanggah = $_POST['desa_penyanggah'];
         $tgl_lahir_penyanggah = $_POST['tgl_lahir_penyanggah'];
@@ -257,12 +255,12 @@ function ubah($koneksi){
         $agama_penyanggah = $_POST['agama_penyanggah'];
 
         
-        if(!empty($nik) && !empty($id_jk) && !empty($nm_penyanggah) && !empty($temp_lahir_penyanggah)){
-            $sql_update = "UPDATE penyanggah SET nik_penyanggah='$nik', id_jk='$id_jk',
-                nama_penyanggah='$nm_penyanggah',
+        if(!empty($nik_penyanggah) && !empty($id_jk) && !empty($nama_penyanggah) && !empty($temp_lahir_penyanggah)){
+            $sql_update = "UPDATE penyanggah SET nik_penyanggah='$nik_penyanggah', id_jk='$id_jk',
+                nama_penyanggah='$nama_penyanggah',
                 temp_lahir_penyanggah='$temp_lahir_penyanggah', desa_penyanggah='$desa_penyanggah',
-                tgl_lahir_penyanggah='$tgl_lahir_penyanggah', kecamatan_penyanggah='$kecamatan_penyanggah', pekerjaan_penyanggah='$pekerjaan_penyanggah',
-                 kabupaten_penyanggah='$kabupaten_penyanggah', agama_penyanggah='$agama_penyanggah' WHERE id_penyanggah=$id_penyanggah";
+                tgl_lahir_penyanggah='$tgl_lahir_penyanggah', kecamatan_penyanggah='$kecamatan_penyanggah', pekerjaan_penyanggah='$pekerjaan_penyanggah', 
+                kabupaten_penyanggah='$kabupaten_penyanggah', agama_penyanggah='$agama_penyanggah' WHERE id_penyanggah=$id_penyanggah";
             $update = mysqli_query($koneksi, $sql_update);
             if($update && isset($_GET['aksi'])){
                 if($_GET['aksi'] == 'update'){
@@ -331,11 +329,11 @@ function ubah($koneksi){
                                 <td>Nama Penyanggah </td>
                             </div>
                             <div class="col-md-3">
-                                <td> : <input type="text" name="nm_penyanggah" value="<?php echo $_GET['nm_penyanggah'] ?>" required /></td>
+                                <td> : <input type="text" name="nama_penyanggah" value="<?php echo $_GET['nama_penyanggah'] ?>" required /></td>
                             </div>      
                             <div class="col-md-3">
                                 <td>Alamat </td>
-                            </div>      
+                            </div>     
                         </tr>
                         <tr>
                             <div class="col-md-3">
@@ -370,7 +368,7 @@ function ubah($koneksi){
                                 <td>Pekerjaan </td>
                             </div>
                             <div class="col-md-3">
-                                <td> : <input type="rext" name="pekerjaan_penyanggah" value="<?php echo $_GET['pekerjaan'] ?>" required /></td>
+                                <td> : <input type="rext" name="pekerjaan_penyanggah" value="<?php echo $_GET['pekerjaan_penyanggah'] ?>" required /></td>
                             </div>      
                             <div class="col-md-3">
                                 <td>Kabupaten </td>
@@ -476,5 +474,8 @@ if (isset($_GET['aksi'])){
                     );
             } );
         </script>
+
+
+
 
 

@@ -37,7 +37,7 @@ function tambah($koneksi){
     if (isset($_POST['btn_simpan'])){
         $nik_ahli_waris = $_POST['nik_ahli_waris'];
         $id_jk = $_POST['id_jk'];
-        $nm_ahli_waris = $_POST['nm_ahli_waris'];
+        $nama_ahli_waris = $_POST['nama_ahli_waris'];
         $temp_lahir_ahli_waris = $_POST['temp_lahir_ahli_waris'];
         $desa_ahli_waris = $_POST['desa_ahli_waris'];
         $tgl_lahir_ahli_waris = $_POST['tgl_lahir_ahli_waris'];
@@ -47,11 +47,11 @@ function tambah($koneksi){
         $agama_ahli_waris = $_POST['agama_ahli_waris'];
 
         
-        if(!empty($nik_ahli_waris) && !empty($id_jk) && !empty($nm_ahli_waris) && !empty($temp_lahir_ahli_waris)){
+        if(!empty($nik_ahli_waris) && !empty($id_jk) && !empty($nama_ahli_waris) && !empty($temp_lahir_ahli_waris)){
 
             $sql ="INSERT INTO ahli_waris
             (nik_ahli_waris,id_jk,nama_ahli_waris,temp_lahir_ahli_waris,desa_ahli_waris,tgl_lahir_ahli_waris,kecamatan_ahli_waris,pekerjaan_ahli_waris,kabupaten_ahli_waris,agama_ahli_waris)
-            VALUES('$nik_ahli_waris','$id_jk','$nm_ahli_waris','$temp_lahir_ahli_waris','$desa_ahli_waris','$tgl_lahir_ahli_waris','$kecamatan_ahli_waris','$pekerjaan_ahli_waris','$kabupaten_ahli_waris','$agama_ahli_waris')";
+            VALUES('$nik_ahli_waris','$id_jk','$nama_ahli_waris','$temp_lahir_ahli_waris','$desa_ahli_waris','$tgl_lahir_ahli_waris','$kecamatan_ahli_waris','$pekerjaan_ahli_waris','$kabupaten_ahli_waris','$agama_ahli_waris')";
 
             $simpan = mysqli_query($koneksi, $sql);
             if($simpan && isset($_GET['aksi'])){
@@ -105,7 +105,7 @@ function tambah($koneksi){
                                         <td>Nama Ahli Waris </td>
                                     </div>
                                     <div class="col-md-3">
-                                        <td> : <input type="text" name="nm_ahli_waris" required /></td>
+                                        <td> : <input type="text" name="nama_ahli_waris" required /></td>
                                     </div>      
                                     <div class="col-md-3">
                                         <td>Alamat </td>
@@ -224,7 +224,12 @@ function tampil_data($koneksi){
                 <td><?php echo $data['kecamatan_ahli_waris']; ?></td>
                 <td><?php echo $data['kabupaten_ahli_waris']; ?></td>
                 <td>
-                    <a href="entri_ahli_waris.php?aksi=update&id=<?php echo $data['id_ahli_waris']; ?>&nik_ahli_waris=<?php echo $data['nik_ahli_waris']; ?>&jk=<?php echo $data['id_jk']; ?>&nm_ahli_waris=<?php echo $data['nama_ahli_waris']; ?>&temp_lahir_ahli_waris=<?php echo $data['temp_lahir_ahli_waris']; ?>&desa_ahli_waris=<?php echo $data['desa_ahli_waris']; ?>&tgl_lahir_ahli_waris=<?php echo $data['tgl_lahir_ahli_waris']; ?>&kecamatan_ahli_waris=<?php echo $data['kecamatan_ahli_waris']; ?>&pekerjaan_ahli_waris=<?php echo $data['pekerjaan_ahli_waris']; ?>&kabupaten_ahli_waris=<?php echo $data['kabupaten_ahli_waris']; ?>&agama_ahli_waris=<?php echo $data['agama_ahli_waris']; ?>">Edit</a>
+                    <a href="entri_ahli_waris.php?aksi=update&id=<?php echo $data['id_ahli_waris']; ?>
+                    &nik_ahli_waris=<?php echo $data['nik_ahli_waris']; ?>&jk=<?php echo $data['id_jk']; ?>
+                    &nama_ahli_waris=<?php echo $data['nama_ahli_waris']; ?>&temp_lahir_ahli_waris=<?php echo $data['temp_lahir_ahli_waris']; ?>
+                    &desa_ahli_waris=<?php echo $data['desa_ahli_waris']; ?>&tgl_lahir_ahli_waris=<?php echo $data['tgl_lahir_ahli_waris']; ?>
+                    &kecamatan_ahli_waris=<?php echo $data['kecamatan_ahli_waris']; ?>&pekerjaan_ahli_waris=<?php echo $data['pekerjaan_ahli_waris']; ?>
+                    &kabupaten_ahli_waris=<?php echo $data['kabupaten_ahli_waris']; ?>&agama_ahli_waris=<?php echo $data['agama_ahli_waris']; ?>">Edit</a>
                 </td>
                 <td>
                     <a href="entri_ahli_waris.php?aksi=delete&id=<?php echo $data['id_ahli_waris']; ?>" onClick="return confirm('Yakin akan menghapus ahli_waris <?= $data['nama_ahli_waris']; ?>?')">Hapus</a>
@@ -249,8 +254,8 @@ function ubah($koneksi){
         $id_ahli_waris = $_POST['id_ahli_waris'];
         $nik_ahli_waris = $_POST['nik_ahli_waris'];
         $id_jk = $_POST['id_jk'];
-        $nm_ahli_waris = $_POST['nm_ahli_waris'];
-        $temp_lahir = $_POST['temp_lahir_ahli_waris'];
+        $nama_ahli_waris = $_POST['nama_ahli_waris'];
+        $temp_lahir_ahli_waris = $_POST['temp_lahir_ahli_waris'];
         $desa_ahli_waris = $_POST['desa_ahli_waris'];
         $tgl_lahir_ahli_waris = $_POST['tgl_lahir_ahli_waris'];
         $kecamatan_ahli_waris = $_POST['kecamatan_ahli_waris'];
@@ -259,9 +264,9 @@ function ubah($koneksi){
         $agama_ahli_waris = $_POST['agama_ahli_waris'];
 
         
-        if(!empty($nik) && !empty($id_jk) && !empty($nm_ahli_waris) && !empty($temp_lahir)){
-            $sql_update = "UPDATE ahli_waris SET nik_ahli_waris='$nik', id_jk='$id_jk',
-                nama_ahli_waris='$nm_ahli_waris',
+        if(!empty($nik_ahli_waris) && !empty($id_jk) && !empty($nama_ahli_waris) && !empty($temp_lahir_ahli_waris)){
+            $sql_update = "UPDATE ahli_waris SET nik_ahli_waris='$nik_ahli_waris', id_jk='$id_jk',
+                nama_ahli_waris='$nama_ahli_waris',
                 temp_lahir_ahli_waris='$temp_lahir_ahli_waris', desa_ahli_waris='$desa_ahli_waris',
                 tgl_lahir_ahli_waris='$tgl_lahir_ahli_waris', kecamatan_ahli_waris='$kecamatan_ahli_waris', pekerjaan_ahli_waris='$pekerjaan_ahli_waris',
                  kabupaten_ahli_waris='$kabupaten_ahli_waris', agama_ahli_waris='$agama_ahli_waris' WHERE id_ahli_waris=$id_ahli_waris";
@@ -333,7 +338,7 @@ function ubah($koneksi){
                                 <td>Nama Ahli_waris </td>
                             </div>
                             <div class="col-md-3">
-                                <td> : <input type="text" name="nm_ahli_waris" value="<?php echo $_GET['nm_ahli_waris'] ?>" required /></td>
+                                <td> : <input type="text" name="nama_ahli_waris" value="<?php echo $_GET['nama_ahli_waris'] ?>" required /></td>
                             </div>      
                             <div class="col-md-3">
                                 <td>Alamat </td>

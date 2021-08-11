@@ -37,7 +37,7 @@ function tambah($koneksi){
     if (isset($_POST['btn_simpan'])){
         $nik_keluarga = $_POST['nik_keluarga'];
         $id_jk = $_POST['id_jk'];
-        $nm_keluarga = $_POST['nm_keluarga_keluarga'];
+        $nama_keluarga = $_POST['nama_keluarga'];
         $temp_lahir_keluarga = $_POST['temp_lahir_keluarga'];
         $desa_keluarga = $_POST['desa_keluarga'];
         $tgl_lahir_keluarga = $_POST['tgl_lahir_keluarga'];
@@ -47,11 +47,11 @@ function tambah($koneksi){
         $agama_keluarga = $_POST['agama_keluarga'];
 
         
-        if(!empty($nik_keluarga) && !empty($id_jk) && !empty($nm_keluarga) && !empty($temp_lahir_keluarga)){
+        if(!empty($nik_keluarga) && !empty($id_jk) && !empty($nama_keluarga) && !empty($temp_lahir_keluarga)){
 
             $sql ="INSERT INTO keluarga
             (nik_keluarga,id_jk,nama_keluarga,temp_lahir_keluarga,desa_keluarga,tgl_lahir_keluarga,kecamatan_keluarga,pekerjaan_keluarga,kabupaten_keluarga,agama_keluarga)
-            VALUES('$nik_keluarga','$id_jk','$nm_keluarga','$temp_lahir_keluarga','$desa_keluarga','$tgl_lahir_keluarga','$kecamatan_keluarga','$pekerjaan_keluarga','$kabupaten_keluarga','$agama_keluarga')";
+            VALUES('$nik_keluarga','$id_jk','$nama_keluarga','$temp_lahir_keluarga','$desa_keluarga','$tgl_lahir_keluarga','$kecamatan_keluarga','$pekerjaan_keluarga','$kabupaten_keluarga','$agama_keluarga')";
 
             $simpan = mysqli_query($koneksi, $sql);
             if($simpan && isset($_GET['aksi'])){
@@ -105,7 +105,7 @@ function tambah($koneksi){
                                         <td>Nama </td>
                                     </div>
                                     <div class="col-md-3">
-                                        <td> : <input type="text" name="nm_keluarga_keluarga" required /></td>
+                                        <td> : <input type="text" name="nama_keluarga" required /></td>
                                     </div>      
                                     <div class="col-md-3">
                                         <td>Alamat </td>
@@ -222,7 +222,7 @@ function tampil_data($koneksi){
                 <td><?php echo $data['kecamatan_keluarga']; ?></td>
                 <td><?php echo $data['kabupaten_keluarga']; ?></td>
                 <td>
-                    <a href="entri_persetujuan_keluarga.php?aksi=update&id=<?php echo $data['id_keluarga']; ?>&nik=<?php echo $data['nik_keluarga']; ?>&jk=<?php echo $data['id_jk']; ?>&nm_keluarga=<?php echo $data['nama_keluarga']; ?>&temp_lahir_keluarga=<?php echo $data['temp_lahir_keluarga']; ?>&desa_keluarga=<?php echo $data['desa_keluarga']; ?>&tgl_lahir_keluarga=<?php echo $data['tgl_lahir_keluarga']; ?>&kecamatan_keluarga=<?php echo $data['kecamatan_keluarga']; ?>&pekerjaan_keluarga=<?php echo $data['pekerjaan_keluarga']; ?>&kabupaten_keluarga=<?php echo $data['kabupaten_keluarga']; ?>&agama_keluarga=<?php echo $data['agama_keluarga']; ?>">Edit</a>
+                    <a href="entri_persetujuan_keluarga.php?aksi=update&id=<?php echo $data['id_keluarga']; ?>&nik_keluarga=<?php echo $data['nik_keluarga']; ?>&jk=<?php echo $data['id_jk']; ?>&nama_keluarga=<?php echo $data['nama_keluarga']; ?>&temp_lahir_keluarga=<?php echo $data['temp_lahir_keluarga']; ?>&desa_keluarga=<?php echo $data['desa_keluarga']; ?>&tgl_lahir_keluarga=<?php echo $data['tgl_lahir_keluarga']; ?>&kecamatan_keluarga=<?php echo $data['kecamatan_keluarga']; ?>&pekerjaan_keluarga=<?php echo $data['pekerjaan_keluarga']; ?>&kabupaten_keluarga=<?php echo $data['kabupaten_keluarga']; ?>&agama_keluarga=<?php echo $data['agama_keluarga']; ?>">Edit</a>
                 </td>
                 <td>
                     <a href="entri_persetujuan_keluarga.php?aksi=delete&id=<?php echo $data['id_keluarga']; ?>" onClick="return confirm('Yakin akan menghapus keluarga <?= $data['nama_keluarga']; ?>?')">Hapus</a>
@@ -247,7 +247,7 @@ function ubah($koneksi){
         $id_keluarga = $_POST['id_keluarga'];
         $nik_keluarga = $_POST['nik_keluarga'];
         $id_jk = $_POST['id_jk'];
-        $nm_keluarga = $_POST['nm_keluarga_keluarga'];
+        $nama_keluarga = $_POST['nama_keluarga'];
         $temp_lahir_keluarga = $_POST['temp_lahir_keluarga'];
         $desa_keluarga = $_POST['desa_keluarga'];
         $tgl_lahir_keluarga = $_POST['tgl_lahir_keluarga'];
@@ -257,9 +257,9 @@ function ubah($koneksi){
         $agama_keluarga = $_POST['agama_keluarga'];
 
         
-        if(!empty($nik) && !empty($id_jk) && !empty($nm_keluarga) && !empty($temp_lahir_keluarga)){
-            $sql_update = "UPDATE keluarga SET nik_keluarga='$nik', id_jk='$id_jk',
-                nama_keluarga='$nm_keluarga',
+        if(!empty($nik_keluarga) && !empty($id_jk) && !empty($nama_keluarga) && !empty($temp_lahir_keluarga)){
+            $sql_update = "UPDATE keluarga SET nik_keluarga='$nik_keluarga', id_jk='$id_jk',
+                nama_keluarga='$nama_keluarga',
                 temp_lahir_keluarga='$temp_lahir_keluarga', desa_keluarga='$desa_keluarga',
                 tgl_lahir_keluarga='$tgl_lahir_keluarga', kecamatan_keluarga='$kecamatan_keluarga', pekerjaan_keluarga='$pekerjaan_keluarga', 
                 kabupaten_keluarga='$kabupaten_keluarga', agama_keluarga='$agama_keluarga' WHERE id_keluarga=$id_keluarga";
@@ -331,7 +331,7 @@ function ubah($koneksi){
                                 <td>Nama Keluarga </td>
                             </div>
                             <div class="col-md-3">
-                                <td> : <input type="text" name="nm_keluarga" value="<?php echo $_GET['nm_keluarga'] ?>" required /></td>
+                                <td> : <input type="text" name="nama_keluarga" value="<?php echo $_GET['nama_keluarga'] ?>" required /></td>
                             </div>      
                             <div class="col-md-3">
                                 <td>Alamat </td>

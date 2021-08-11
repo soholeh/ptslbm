@@ -1,4 +1,4 @@
-<?php $title = "Entri Data Kuasa";
+<?php $title = "Entri Data  Kuasa";
 include_once('../../../_header.php');
 
 ?>
@@ -14,7 +14,7 @@ include_once('../../../_header.php');
                     //     } 
                      ?>
                     <div class="container-fluid">
-                        <p>Entri Data Kuasa Nomor Berkas :</p>
+                        <p>Entri Data  Kuasa Nomor Berkas :</p>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">
                                 <a href="<?= base_url('admin/pemb_berkas');?>"> Berkas</a>
@@ -27,8 +27,6 @@ include_once('../../../_header.php');
                             </li>
                         </ol>
 
-
-
 <?php
 
 // --- Fngsi tambah data (Create)
@@ -37,7 +35,7 @@ function tambah($koneksi){
     if (isset($_POST['btn_simpan'])){
         $nik_kuasa = $_POST['nik_kuasa'];
         $id_jk = $_POST['id_jk'];
-        $nm_kuasa = $_POST['nm_kuasa'];
+        $nama_kuasa = $_POST['nama_kuasa'];
         $temp_lahir_kuasa = $_POST['temp_lahir_kuasa'];
         $desa_kuasa = $_POST['desa_kuasa'];
         $tgl_lahir_kuasa = $_POST['tgl_lahir_kuasa'];
@@ -47,11 +45,11 @@ function tambah($koneksi){
         $agama_kuasa = $_POST['agama_kuasa'];
 
         
-        if(!empty($nik_kuasa) && !empty($id_jk) && !empty($nm_kuasa) && !empty($temp_lahir_kuasa)){
+        if(!empty($nik_kuasa) && !empty($id_jk) && !empty($nama_kuasa) && !empty($temp_lahir_kuasa)){
 
             $sql ="INSERT INTO kuasa
             (nik_kuasa,id_jk,nama_kuasa,temp_lahir_kuasa,desa_kuasa,tgl_lahir_kuasa,kecamatan_kuasa,pekerjaan_kuasa,kabupaten_kuasa,agama_kuasa)
-            VALUES('$nik_kuasa','$id_jk','$nm_kuasa','$temp_lahir_kuasa','$desa_kuasa','$tgl_lahir_kuasa','$kecamatan_kuasa','$pekerjaan_kuasa','$kabupaten_kuasa','$agama_kuasa')";
+            VALUES('$nik_kuasa','$id_jk','$nama_kuasa','$temp_lahir_kuasa','$desa_kuasa','$tgl_lahir_kuasa','$kecamatan_kuasa','$pekerjaan_kuasa','$kabupaten_kuasa','$agama_kuasa')";
 
             $simpan = mysqli_query($koneksi, $sql);
             if($simpan && isset($_GET['aksi'])){
@@ -102,10 +100,10 @@ function tambah($koneksi){
                                 </tr>
                                 <tr>
                                     <div class="col-md-3">
-                                        <td>Nama Kuasa </td>
+                                        <td>Nama </td>
                                     </div>
                                     <div class="col-md-3">
-                                        <td> : <input type="text" name="nm_kuasa" required /></td>
+                                        <td> : <input type="text" name="nama_kuasa" required /></td>
                                     </div>      
                                     <div class="col-md-3">
                                         <td>Alamat </td>
@@ -202,7 +200,7 @@ function tampil_data($koneksi){
         echo "<thead>";
             echo "<tr>";
             echo "<th>No</th>
-                <th>Nama Kuasa</th>
+                <th>Nama</th>
                 <th>NIK</th>
                 <th>Desa</th>
                 <th>Kecamatan</th>
@@ -222,7 +220,7 @@ function tampil_data($koneksi){
                 <td><?php echo $data['kecamatan_kuasa']; ?></td>
                 <td><?php echo $data['kabupaten_kuasa']; ?></td>
                 <td>
-                    <a href="entri_kuasa.php?aksi=update&id=<?php echo $data['id_kuasa']; ?>&nik=<?php echo $data['nik_kuasa']; ?>&jk=<?php echo $data['id_jk']; ?>&nm_kuasa=<?php echo $data['nama_kuasa']; ?>&temp_lahir_kuasa=<?php echo $data['temp_lahir_kuasa']; ?>&desa_kuasa=<?php echo $data['desa_kuasa']; ?>&tgl_lahir_kuasa=<?php echo $data['tgl_lahir_kuasa']; ?>&kecamatan_kuasa=<?php echo $data['kecamatan_kuasa']; ?>&pekerjaan_kuasa=<?php echo $data['pekerjaan_kuasa']; ?>&kabupaten_kuasa=<?php echo $data['kabupaten_kuasa']; ?>&agama_kuasa=<?php echo $data['agama_kuasa']; ?>">Edit</a>
+                    <a href="entri_kuasa.php?aksi=update&id=<?php echo $data['id_kuasa']; ?>&nik_kuasa=<?php echo $data['nik_kuasa']; ?>&jk=<?php echo $data['id_jk']; ?>&nama_kuasa=<?php echo $data['nama_kuasa']; ?>&temp_lahir_kuasa=<?php echo $data['temp_lahir_kuasa']; ?>&desa_kuasa=<?php echo $data['desa_kuasa']; ?>&tgl_lahir_kuasa=<?php echo $data['tgl_lahir_kuasa']; ?>&kecamatan_kuasa=<?php echo $data['kecamatan_kuasa']; ?>&pekerjaan_kuasa=<?php echo $data['pekerjaan_kuasa']; ?>&kabupaten_kuasa=<?php echo $data['kabupaten_kuasa']; ?>&agama_kuasa=<?php echo $data['agama_kuasa']; ?>">Edit</a>
                 </td>
                 <td>
                     <a href="entri_kuasa.php?aksi=delete&id=<?php echo $data['id_kuasa']; ?>" onClick="return confirm('Yakin akan menghapus kuasa <?= $data['nama_kuasa']; ?>?')">Hapus</a>
@@ -247,7 +245,7 @@ function ubah($koneksi){
         $id_kuasa = $_POST['id_kuasa'];
         $nik_kuasa = $_POST['nik_kuasa'];
         $id_jk = $_POST['id_jk'];
-        $nm_kuasa = $_POST['nm_kuasa'];
+        $nama_kuasa = $_POST['nama_kuasa'];
         $temp_lahir_kuasa = $_POST['temp_lahir_kuasa'];
         $desa_kuasa = $_POST['desa_kuasa'];
         $tgl_lahir_kuasa = $_POST['tgl_lahir_kuasa'];
@@ -257,12 +255,12 @@ function ubah($koneksi){
         $agama_kuasa = $_POST['agama_kuasa'];
 
         
-        if(!empty($nik) && !empty($id_jk) && !empty($nm_kuasa)&& !empty($temp_lahir_kuasa)){
-            $sql_update = "UPDATE kuasa SET nik_kuasa='$nik', id_jk='$id_jk',
-                nama_kuasa='$nm_kuasa',
-                , temp_lahir_kuasa='$temp_lahir_kuasa', desa_kuasa='$desa_kuasa',
-                tgl_lahir_kuasa='$tgl_lahir_kuasa', kecamatan_kuasa='$kecamatan_kuasa', pekerjaan_kuasa='$pekerjaan_kuasa',
-                 kabupaten_kuasa='$kabupaten_kuasa', agama_kuasa='$agama_kuasa' WHERE id_kuasa=$id_kuasa";
+        if(!empty($nik_kuasa) && !empty($id_jk) && !empty($nama_kuasa) && !empty($temp_lahir_kuasa)){
+            $sql_update = "UPDATE kuasa SET nik_kuasa='$nik_kuasa', id_jk='$id_jk',
+                nama_kuasa='$nama_kuasa',
+                temp_lahir_kuasa='$temp_lahir_kuasa', desa_kuasa='$desa_kuasa',
+                tgl_lahir_kuasa='$tgl_lahir_kuasa', kecamatan_kuasa='$kecamatan_kuasa', pekerjaan_kuasa='$pekerjaan_kuasa', 
+                kabupaten_kuasa='$kabupaten_kuasa', agama_kuasa='$agama_kuasa' WHERE id_kuasa=$id_kuasa";
             $update = mysqli_query($koneksi, $sql_update);
             if($update && isset($_GET['aksi'])){
                 if($_GET['aksi'] == 'update'){
@@ -331,12 +329,11 @@ function ubah($koneksi){
                                 <td>Nama Kuasa </td>
                             </div>
                             <div class="col-md-3">
-                                <td> : <input type="text" name="nm_kuasa" value="<?php echo $_GET['nm_kuasa'] ?>" required /></td>
+                                <td> : <input type="text" name="nama_kuasa" value="<?php echo $_GET['nama_kuasa'] ?>" required /></td>
                             </div>      
                             <div class="col-md-3">
                                 <td>Alamat </td>
-                            </div>
-     
+                            </div>     
                         </tr>
                         <tr>
                             <div class="col-md-3">
@@ -477,5 +474,7 @@ if (isset($_GET['aksi'])){
                     );
             } );
         </script>
+
+
 
 
