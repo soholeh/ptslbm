@@ -64,7 +64,7 @@ if (isset($_SESSION['admin'])) {
                                                         <button class="btn btn-lg btn-primary btn-block" name="login">Login</button>
                                                     </div>
                                                     </br>
-                        <p class="text-center">Belum memiliki akun? <a href="daftar.php" class="text-success">Daftar</a> sekarang.</p>
+                                                        <p class="text-center">Belum memiliki akun? <a href="daftar.php" class="text-success">Daftar</a> sekarang.</p>
                                                   </div>
                                               </div>
                                               
