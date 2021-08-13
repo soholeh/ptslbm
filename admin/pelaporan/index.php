@@ -32,13 +32,13 @@ if (isset($_POST["kirim"])) {
 <div id="layoutSidenav_content">
     <main>
         <?php 
-        // if (!isset($_SESSION['admin'])) {
-        //     echo    "<script>
-        //             alert('Anda Bukan Admin');
-        //             location='../menu/data.php';
-        //         </script>";
-        //     } 
-         ?>
+          if (!isset($_SESSION['admin'])) {
+              echo    "<script>
+                      alert('Anda Bukan Admin');
+                      location='../pemb_berkas';
+                  </script>";
+              } 
+           ?>
         <div class="container-fluid">
             <ol>
                 <li class="breadcrumb-item">

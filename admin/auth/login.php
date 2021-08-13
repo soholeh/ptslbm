@@ -1,12 +1,14 @@
 <?php require_once "../_config/config.php"; 
 if (isset($_SESSION['admin'])) {
-    header("location: ../dashboard");
+    header("location: ../data_desa");
+    } else if (isset($_SESSION['pemilik'])) { //iki else if ke loro mengerror iki mung tambahan ra kanggo nggo ganti error 
+    header("location: ../pemb_berkas");
     } else if (isset($_SESSION['p_yuridis'])) {
-    header("location: ../dashboard");
+    header("location: ../pemb_berkas");
     } else if (isset($_SESSION['p_pengukuran'])) {
-    header("location: ../dashboard");
+    header("location: ../pemb_berkas");
     } else if (isset($_SESSION['p_desa'])) {
-    header("location: ../dashboard");
+    header("location: ../pemb_berkas");
     } else { 
 ?>
 
@@ -90,19 +92,19 @@ if (isset($_POST['login'])) {
             $_SESSION['p_yuridis'] = $data;
             echo    "<script>
                 alert('Anda Berhasil Login');
-                location='../data_proyek';
+                location='../pemb_berkas';
             </script>";
         } else if ($data['nama_level'] == "Petugas Pengukuran") {
             $_SESSION['p_ukur'] = $data;
             echo    "<script>
                 alert('Anda Berhasil Login');
-                location='../data_user';
+                location='../pemb_berkas';
             </script>";
         } else if ($data['nama_level'] == "Petugas Desa") {
             $_SESSION['p_desa'] = $data;
             echo    "<script>
                 alert('Anda Berhasil Login');
-                location='../data_desa';
+                location='../pemb_berkas';
             </script>";
         }
     }else { ?>
