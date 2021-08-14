@@ -24,7 +24,6 @@ include_once('../_header.php');
 
                         	<div class="col-xl-10 offset-xl-1">
 
-
 <?php
 
 // --- Fngsi tambah data (Create)
@@ -98,7 +97,16 @@ function tambah($koneksi){
 							<td></td>
 							<td><label class="ml-2">
 							<input type="submit" name="btn_simpan" value="Cari"/>
+							<button>
+							<a href="index.php?aksi=insert">Buat Berkas</a>
+							</button>
 							<!-- <input type="reset" name="reset" value="Besihkan"/> -->
+						</label></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td><label class="ml-2">
+							
 						</label></td>
 						</tr>
 
@@ -113,7 +121,9 @@ function tambah($koneksi){
 	<?php
 
 }
-// --- Tutup Fngsi tambah data
+// --- Tutup Fngsi tambah data 
+
+
 
 
 // --- Fungsi Baca Data (Read)
@@ -329,9 +339,111 @@ function hapus($koneksi){
 		}
 	}
 	
-}
+}?>
+
+<?php
 // --- Tutup Fungsi Hapus
 
+
+function insert($koneksi){
+	
+	?>
+	<a href="index.php"> &laquo; Home</a> | 
+	<a href="index.php?aksi=create"> (+) Tambah Data</a>
+	<form action="" method="POST">
+		<fieldset>
+			<div class="table-responsive">
+				<table class="table table-responsive-sm table-hover" border="0">
+					<tr>
+						<td>Desa</td> 
+						<td> : 
+							<select name="id_desa" required>
+								<?php 
+									$datadesa = array();
+									$sql = mysqli_query($koneksi, "SELECT * FROM desa");
+									while ($desa = mysqli_fetch_assoc($sql)) {
+										$datadesa[] = $desa;
+									}
+
+								?>
+								<option disabled selected value="">-Pilih Desa-</option>
+								<?php foreach ($datadesa as $key => $value):?>
+								<option value="<?= $value["id_desa"] ?>"><?= $value["nama_desa"] ?></option>
+								<?php endforeach ?>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>Desa</td> 
+						<td> : 
+						<select name="id_proyek" required>
+						        	<?php 
+										$dataproyek = array();
+										$sql = mysqli_query($koneksi, "SELECT * FROM proyek");
+										while ($proyek = mysqli_fetch_assoc($sql)) {
+										    $dataproyek[] = $proyek;
+										}
+									?>
+						            <option disabled selected value="">-Pilih Proyek-</option>
+						            <?php foreach ($dataproyek as $key => $value):?>
+						            <option value="<?= $value["id_proyek"] ?>"><?= $value["nama_proyek"] ?> / <?= $value["tahun_proyek"] ?></option>
+						            <?php endforeach ?>
+						        </select>
+						</td>
+					</tr>
+					<tr>
+						<td>Banyak Berkas </td> 
+						<td> : <input type="text" name="countData" required/></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><label class="ml-2">
+						<input type="submit" name="btn_simpan" value="Simpan"/>
+						<!-- <input type="reset" name="reset" value="Besihkan"/> -->
+					</label></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><label class="ml-2">
+						
+					</label></td>
+					</tr>
+
+				</table>
+				<br>
+			</div>
+
+			<p><?php echo isset($pesan) ? $pesan : "" ?></p>
+		</fieldset>
+	</form>
+
+	<?php
+	if (isset($_POST['btn_simpan'])) {
+				 $nama_desa = $_POST['id_desa'];
+				 $nama_proyek = $_POST['id_proyek'];
+				 $countData = $_POST['countData'];
+				 if(isset($_POST['btn_simpan'])){
+
+				 for ($i=0 ; $i<$countData ; $i++){
+				 
+			 $sql = $koneksi->query("insert into user (id_desa,id_proyek) values('$nama_desa','$nama_proyek')");
+				 }}
+			 if ($sql) {
+				 ?>
+
+				 <script type="text/javascript">
+					 alert("Data Berhasil di Simpan");
+					 window.location.href="index.php";
+				 </script>
+
+
+				 <?php
+			 }
+	  }}
+   ?>
+
+   <?php
+// --- Tutup Fngsi tambah data
 
 // ===================================================================
 
@@ -341,6 +453,9 @@ if (isset($_GET['aksi'])){
 		case "create":
 			echo '<a href="index.php"> &laquo; Home</a>';
 			tambah($koneksi);
+			break;
+		case "insert";
+			insert($koneksi);
 			break;
 		case "read":
 			tampil_data($koneksi);
