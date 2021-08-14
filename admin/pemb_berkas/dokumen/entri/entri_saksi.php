@@ -39,7 +39,6 @@ function tambah($koneksi){
 		$nik = $_POST['nik'];
 		$id_jk = $_POST['id_jk'];
 		$nm_saksi = $_POST['nm_saksi'];
-		$alamat = $_POST['alamat'];
 		$temp_lahir = $_POST['temp_lahir'];
 		$desa = $_POST['desa'];
 		$tgl_lahir = $_POST['tgl_lahir'];
@@ -49,11 +48,11 @@ function tambah($koneksi){
 		$agama = $_POST['agama'];
 
 		
-		if(!empty($nik) && !empty($id_jk) && !empty($nm_saksi) && !empty($alamat) && !empty($temp_lahir)){
+		if(!empty($nik) && !empty($id_jk) && !empty($nm_saksi) && !empty($temp_lahir)){
 
 			$sql ="INSERT INTO saksi
-            (nik_saksi,id_jk,nama_saksi,alamat_saksi,temp_lahir_saksi,desa_saksi,tgl_lahir_saksi,kecamatan_saksi,pekerjaan_saksi,kabupaten_saksi,agama_saksi)
-            VALUES('$nik','$id_jk','$nm_saksi','$alamat','$temp_lahir','$desa','$tgl_lahir','$kecamatan','$pekerjaan','$kabupaten','$agama')";
+            (nik_saksi,id_jk,nama_saksi,temp_lahir_saksi,desa_saksi,tgl_lahir_saksi,kecamatan_saksi,pekerjaan_saksi,kabupaten_saksi,agama_saksi)
+            VALUES('$nik','$id_jk','$nm_saksi','$temp_lahir','$desa','$tgl_lahir','$kecamatan','$pekerjaan','$kabupaten','$agama')";
 
 			$simpan = mysqli_query($koneksi, $sql);
 			if($simpan && isset($_GET['aksi'])){
@@ -110,10 +109,10 @@ function tambah($koneksi){
 										<td> : <input type="text" name="nm_saksi" required /></td>
 									</div>		
 									<div class="col-md-3">
-										<td>Alamat </td>
+										<td>Alamat :</td>
 									</div>
 									<div class="col-md-3">
-										<td> : <textarea name="alamat" row="4" cols="23"></textarea></td>
+										<td></td>
 									</div>		
 								</tr>
 								<tr>
@@ -228,7 +227,7 @@ function tampil_data($koneksi){
 				<td><?php echo $data['kecamatan_saksi']; ?></td>
 				<td><?php echo $data['kabupaten_saksi']; ?></td>
 				<td>
-					<a href="entri_saksi.php?aksi=update&id=<?php echo $data['id_saksi']; ?>&nik=<?php echo $data['nik_saksi']; ?>&jk=<?php echo $data['id_jk']; ?>&nm_saksi=<?php echo $data['nama_saksi']; ?>&alamat=<?php echo $data['alamat_saksi']; ?>&temp_lahir=<?php echo $data['temp_lahir_saksi']; ?>&desa=<?php echo $data['desa_saksi']; ?>&tgl_lahir=<?php echo $data['tgl_lahir_saksi']; ?>&kecamatan=<?php echo $data['kecamatan_saksi']; ?>&pekerjaan=<?php echo $data['pekerjaan_saksi']; ?>&kabupaten=<?php echo $data['kabupaten_saksi']; ?>&agama=<?php echo $data['agama_saksi']; ?>">Edit</a>
+					<a href="entri_saksi.php?aksi=update&id=<?php echo $data['id_saksi']; ?>&nik=<?php echo $data['nik_saksi']; ?>&jk=<?php echo $data['id_jk']; ?>&nm_saksi=<?php echo $data['nama_saksi']; ?>&temp_lahir=<?php echo $data['temp_lahir_saksi']; ?>&desa=<?php echo $data['desa_saksi']; ?>&tgl_lahir=<?php echo $data['tgl_lahir_saksi']; ?>&kecamatan=<?php echo $data['kecamatan_saksi']; ?>&pekerjaan=<?php echo $data['pekerjaan_saksi']; ?>&kabupaten=<?php echo $data['kabupaten_saksi']; ?>&agama=<?php echo $data['agama_saksi']; ?>">Edit</a>
 				</td>
 				<td>
 					<a href="entri_saksi.php?aksi=delete&id=<?php echo $data['id_saksi']; ?>" onClick="return confirm('Yakin akan menghapus saksi <?= $data['nama_saksi']; ?>?')">Hapus</a>
@@ -255,7 +254,6 @@ function ubah($koneksi){
 		$nik = $_POST['nik'];
 		$id_jk = $_POST['id_jk'];
 		$nm_saksi = $_POST['nm_saksi'];
-		$alamat = $_POST['alamat'];
 		$temp_lahir = $_POST['temp_lahir'];
 		$desa = $_POST['desa'];
 		$tgl_lahir = $_POST['tgl_lahir'];
@@ -265,10 +263,9 @@ function ubah($koneksi){
 		$agama = $_POST['agama'];
 
 		
-		if(!empty($nik) && !empty($id_jk) && !empty($nm_saksi) && !empty($alamat) && !empty($temp_lahir)){
+		if(!empty($nik) && !empty($id_jk) && !empty($nm_saksi) && !empty($temp_lahir)){
 			$sql_update = "UPDATE saksi SET nik_saksi='$nik', id_jk='$id_jk',
-	            nama_saksi='$nm_saksi',
-	            alamat_saksi='$alamat', temp_lahir_saksi='$temp_lahir', desa_saksi='$desa',
+	            nama_saksi='$nm_saksi', temp_lahir_saksi='$temp_lahir', desa_saksi='$desa',
 	            tgl_lahir_saksi='$tgl_lahir', kecamatan_saksi='$kecamatan', pekerjaan_saksi='$pekerjaan', kabupaten_saksi='$kabupaten', agama_saksi='$agama' WHERE id_saksi=$id_saksi";
 			$update = mysqli_query($koneksi, $sql_update);
 			if($update && isset($_GET['aksi'])){
@@ -344,7 +341,7 @@ function ubah($koneksi){
 								<td>Alamat </td>
 							</div>
 							<div class="col-md-3">
-								<td> : <textarea name="alamat" row="4" cols="23"><?php echo $_GET['alamat'] ?></textarea></td>
+								<td></td>
 							</div>		
 						</tr>
 						<tr>

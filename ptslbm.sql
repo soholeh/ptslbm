@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 10 Agu 2021 pada 14.40
+-- Waktu pembuatan: 14 Agu 2021 pada 05.02
 -- Versi server: 10.1.35-MariaDB
 -- Versi PHP: 7.2.9
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `ptslbm`
+-- Database: `pts`
 --
 
 -- --------------------------------------------------------
@@ -89,7 +89,7 @@ INSERT INTO `jabatan_ajudikasi` (`id_jabatan_ajudikasi`, `jabatan_ajudikasi`) VA
 
 CREATE TABLE `jenis_kelamin` (
   `id_jk` int(11) NOT NULL,
-  `nama_jk` varchar(100) NOT NULL
+  `nama_jk` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -97,7 +97,7 @@ CREATE TABLE `jenis_kelamin` (
 --
 
 INSERT INTO `jenis_kelamin` (`id_jk`, `nama_jk`) VALUES
-(1, 'Peria'),
+(1, 'Pria'),
 (2, 'Wanita');
 
 -- --------------------------------------------------------
@@ -212,7 +212,7 @@ CREATE TABLE `proyek` (
 --
 
 INSERT INTO `proyek` (`id_proyek`, `nama_proyek`, `tahun_proyek`) VALUES
-(1, 'PTSLp', '2020'),
+(1, 'PTSL', '2020'),
 (2, 'PTSL', '2021'),
 (3, 'PTSL', '2022');
 
@@ -227,7 +227,6 @@ CREATE TABLE `saksi` (
   `nik_saksi` varchar(100) NOT NULL,
   `id_jk` int(11) NOT NULL,
   `nama_saksi` varchar(225) NOT NULL,
-  `alamat_saksi` text NOT NULL,
   `temp_lahir_saksi` varchar(225) NOT NULL,
   `desa_saksi` varchar(255) NOT NULL,
   `tgl_lahir_saksi` date NOT NULL,
@@ -241,9 +240,9 @@ CREATE TABLE `saksi` (
 -- Dumping data untuk tabel `saksi`
 --
 
-INSERT INTO `saksi` (`id_saksi`, `nik_saksi`, `id_jk`, `nama_saksi`, `alamat_saksi`, `temp_lahir_saksi`, `desa_saksi`, `tgl_lahir_saksi`, `kecamatan_saksi`, `pekerjaan_saksi`, `kabupaten_saksi`, `agama_saksi`) VALUES
-(1, '1117030205780001', 1, 'SYAFRI', 'Dimana mana', 'Aceh', 'Perorangan', '1995-02-06', 'Bukit', 'Swasta', 'Bener Meriah', 'Islam'),
-(2, '1117030205780004', 1, 'RISWANDI', 'Orareti', 'Banda', 'Perorangan', '1997-02-02', 'Bukit', 'Swasta', 'Tinggi', 'Islam');
+INSERT INTO `saksi` (`id_saksi`, `nik_saksi`, `id_jk`, `nama_saksi`, `temp_lahir_saksi`, `desa_saksi`, `tgl_lahir_saksi`, `kecamatan_saksi`, `pekerjaan_saksi`, `kabupaten_saksi`, `agama_saksi`) VALUES
+(1, '1117030205780001', 1, 'SYAFRI', 'Aceh', 'Perorangan', '1995-02-06', 'Bukit', 'Swasta', 'Bener Meriah', 'Islam'),
+(2, '1117030205780002', 2, 'RISWANDIy', 'Bandaa', 'Perorangann', '1997-02-01', 'Bukitt', 'Swastaa', 'Tinggii', 'Islamm');
 
 -- --------------------------------------------------------
 
@@ -266,10 +265,11 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `nama_user`, `user_nama`, `password`, `id_desa`, `id_level`, `id_proyek`) VALUES
-(1, 'Muhammad Solehudin', 'soleh', 'soleh', 9, 1, 1),
+(1, 'Muhammad Solehudin', 'soleh', 'soleh', 9, 1, 2),
 (2, 'Alhalim Nova', 'basuki', 'basuki', 9, 3, 1),
 (4, 'Idal Ganda', 'idal', 'idal', 4, 2, 1),
-(5, 'Dimas Pitera', 'dimas', 'dimas', 9, 1, 3);
+(5, 'Dimas Pitera A', 'dimas', 'dimas', 1, 1, 3),
+(6, 'Faris Taqiyuddin', 'faris', 'faris', 9, 4, 2);
 
 --
 -- Indexes for dumped tables
@@ -280,6 +280,12 @@ INSERT INTO `user` (`id_user`, `nama_user`, `user_nama`, `password`, `id_desa`, 
 --
 ALTER TABLE `desa`
   ADD PRIMARY KEY (`id_desa`);
+
+--
+-- Indeks untuk tabel `jabatan_ajudikasi`
+--
+ALTER TABLE `jabatan_ajudikasi`
+  ADD PRIMARY KEY (`id_jabatan_ajudikasi`);
 
 --
 -- Indeks untuk tabel `jenis_kelamin`
@@ -298,6 +304,18 @@ ALTER TABLE `kecamatan`
 --
 ALTER TABLE `level`
   ADD PRIMARY KEY (`id_level`);
+
+--
+-- Indeks untuk tabel `panitia_ajudikasi`
+--
+ALTER TABLE `panitia_ajudikasi`
+  ADD PRIMARY KEY (`NIP`);
+
+--
+-- Indeks untuk tabel `penlok`
+--
+ALTER TABLE `penlok`
+  ADD PRIMARY KEY (`id_penlok`);
 
 --
 -- Indeks untuk tabel `proyek`
@@ -346,6 +364,12 @@ ALTER TABLE `level`
   MODIFY `id_level` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT untuk tabel `penlok`
+--
+ALTER TABLE `penlok`
+  MODIFY `id_penlok` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT untuk tabel `proyek`
 --
 ALTER TABLE `proyek`
@@ -361,7 +385,7 @@ ALTER TABLE `saksi`
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
