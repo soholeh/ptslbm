@@ -1,6 +1,6 @@
 <?php require_once "_config/config.php";
 
-if (isset($_SESSION['admin']) OR (isset($_SESSION['p_yuridus']) OR (isset($_SESSION['p_ukur']) OR (isset($_SESSION['p_desa']))))) { ?>
+if (isset($_SESSION['admin']) OR (isset($_SESSION['p_yuridis']) OR (isset($_SESSION['p_ukur']) OR (isset($_SESSION['p_desa']))))) { ?>
 
 <!DOCTYPE html>
 <html lang="en">
