@@ -14,32 +14,8 @@ include_once('../../../_header.php');
                     //     } 
                      ?>
                     <div class="container-fluid">
-                        <p>Entri Data Bukti Alas Hak Nomor Berkas :</p>
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">
-                                <a href="<?= base_url('admin/pemb_berkas');?>"> Berkas</a>
-                            </li>
-                            <li class="breadcrumb-item active">
-                                <a href="<?= base_url('admin/pemb_berkas/dokumen');?>"> Dokumen</a>
-                            </li>
-                            <li class="breadcrumb-item active">
-                                <a href="<?= base_url('admin/pemb_berkas/dokumen/entri/entri_pemohon.php');?>"> Entri</a>
-                            </li>
-                            	<div class="dropdown m-auto">
-								  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								    Menu
-								  </button>
-								  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								    <a class="dropdown-item" href="#">Cetak</a>
-								    <a class="dropdown-item" href="#">Permohonan</a>
-								    <a class="dropdown-item" href="#">Sporadik</a>
-								    <a class="dropdown-item" href="#">Jual Beli</a>
-								    <a class="dropdown-item" href="#">Hibah</a>
-								    <a class="dropdown-item" href="#">Surat Keterangan Ganti Usaha</a>
-								    <a class="dropdown-item" href="#">Sanggahan</a>
-								  </div>
-								</div>
-                        </ol>
+                        <p cl>Entri Data Bukti Alas Hak Nomor Berkas :</p>
+                        
 
 
 
@@ -81,13 +57,42 @@ function tambah($koneksi){
 	}
 
 	?> 
-	<dir class="row">
+	<div class="row" style="margin-top: -200px;">
 		<div class="col-xl-12">
 		<form action="" method="POST">
 			<div class="form-row">
 					<fieldset>
 						<div class="table-responsive">
 							<table class="table table-responsive-sm table-hover" border="0">
+								<tr>
+									<td colspan="12">
+										<ol class="breadcrumb mb-0">
+				                            <li class="breadcrumb-item active">
+				                                <a href="<?= base_url('admin/pemb_berkas');?>"> Berkas</a>
+				                            </li>
+				                            <li class="breadcrumb-item active">
+				                                <a href="<?= base_url('admin/pemb_berkas/dokumen');?>"> Dokumen</a>
+				                            </li>
+				                            <li class="breadcrumb-item active">
+				                                <a href="<?= base_url('admin/pemb_berkas/dokumen/entri/entri_pemohon.php');?>"> Entri</a>
+				                            </li>
+				                            	<div class="dropdown m-auto">
+												  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+												    Menu
+												  </button>
+												  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+												    <a class="dropdown-item" href="#">Cetak</a>
+												    <a class="dropdown-item" href="#">Permohonan</a>
+												    <a class="dropdown-item" href="#">Sporadik</a>
+												    <a class="dropdown-item" href="#">Jual Beli</a>
+												    <a class="dropdown-item" href="#">Hibah</a>
+												    <a class="dropdown-item" href="#">Surat Keterangan Ganti Usaha</a>
+												    <a class="dropdown-item" href="#">Sanggahan</a>
+												  </div>
+												</div>
+				                        </ol>
+									</td>
+								</tr>
 								<tr>
 									<div class="col-md-3">
 										<td>Jenis Alas Hak</td>
@@ -126,13 +131,13 @@ function tambah($koneksi){
 									</div>
 									<style type="text/css">
 										select {
-											    width: 180px;
+											    width: 170px;
 											}
 										input[type="text"] {
-											    width: 180px;
+											    width: 170px;
 											}
 										input[type="number"] {
-											    width: 180px;
+											    width: 170px;
 											}
 											input[type="email"] {
 											    width: 190px;
