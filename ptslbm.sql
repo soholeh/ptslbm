@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 18 Agu 2021 pada 03.23
+-- Waktu pembuatan: 18 Agu 2021 pada 06.05
 -- Versi server: 10.1.35-MariaDB
 -- Versi PHP: 7.2.9
 
@@ -48,6 +48,46 @@ CREATE TABLE `ahli_waris` (
 
 INSERT INTO `ahli_waris` (`id_ahli_waris`, `nik_ahli_waris`, `id_jk`, `nama_ahli_waris`, `temp_lahir_ahli_waris`, `desa_ahli_waris`, `tgl_lahir_ahli_waris`, `kecamatan_ahli_waris`, `pekerjaan_ahli_waris`, `kabupaten_ahli_waris`, `agama_ahli_waris`) VALUES
 (2, '1', 2, 'ab', 'ab                    ', 'ab', '2021-08-12', 'ab', 'ab                    ', 'ab', 'ab');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `bukti_alas_hak`
+--
+
+CREATE TABLE `bukti_alas_hak` (
+  `id_bah` int(11) NOT NULL,
+  `id_jah` int(11) NOT NULL,
+  `id_klaster` int(11) NOT NULL,
+  `id_ss` int(11) NOT NULL,
+  `nama_alas_hak` varchar(255) NOT NULL,
+  `nomor_alas_hak` varchar(255) NOT NULL,
+  `tgl_alas_hak` date NOT NULL,
+  `pembuat_alas_hak` varchar(255) NOT NULL,
+  `luas_yang_dimohon` varchar(255) NOT NULL,
+  `bt_utara` varchar(255) NOT NULL,
+  `bt_timur` varchar(255) NOT NULL,
+  `bt_selatan` varchar(255) NOT NULL,
+  `bt_barat` varchar(255) NOT NULL,
+  `harga_bah` int(100) NOT NULL,
+  `nama_alm` varchar(255) NOT NULL,
+  `tgl_alm` date NOT NULL,
+  `desa_alm` varchar(255) NOT NULL,
+  `kecamatan_alm` varchar(255) NOT NULL,
+  `kabupaten_alm` varchar(255) NOT NULL,
+  `desa_akhir` varchar(255) NOT NULL,
+  `kecamatan_akhir` varchar(255) NOT NULL,
+  `kabupaten_akhir` varchar(255) NOT NULL,
+  `kawin_dengan` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `bukti_alas_hak`
+--
+
+INSERT INTO `bukti_alas_hak` (`id_bah`, `id_jah`, `id_klaster`, `id_ss`, `nama_alas_hak`, `nomor_alas_hak`, `tgl_alas_hak`, `pembuat_alas_hak`, `luas_yang_dimohon`, `bt_utara`, `bt_timur`, `bt_selatan`, `bt_barat`, `harga_bah`, `nama_alm`, `tgl_alm`, `desa_alm`, `kecamatan_alm`, `kabupaten_alm`, `desa_akhir`, `kecamatan_akhir`, `kabupaten_akhir`, `kawin_dengan`) VALUES
+(1, 8, 4, 2, 'b', 'b', '2021-08-01', 'b', 'b', 'b', 'b', 'b', 'b', 1234, 'b', '2021-08-02', 'b', 'b', 'b', 'b', 'b', 'b', 'b'),
+(3, 2, 2, 1, 'Akta Jual Aja', '01/BKT/AJB/2021', '2021-08-01', 'sopo', '100m', 'n', 'e', 's', 'w', 1000000, 'sopo', '2021-01-01', 'a', 'a', 'a', 'a', 'a', 'a', 'a');
 
 -- --------------------------------------------------------
 
@@ -546,6 +586,12 @@ ALTER TABLE `ahli_waris`
   ADD PRIMARY KEY (`id_ahli_waris`);
 
 --
+-- Indeks untuk tabel `bukti_alas_hak`
+--
+ALTER TABLE `bukti_alas_hak`
+  ADD PRIMARY KEY (`id_bah`);
+
+--
 -- Indeks untuk tabel `desa`
 --
 ALTER TABLE `desa`
@@ -674,6 +720,12 @@ ALTER TABLE `user`
 --
 ALTER TABLE `ahli_waris`
   MODIFY `id_ahli_waris` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT untuk tabel `bukti_alas_hak`
+--
+ALTER TABLE `bukti_alas_hak`
+  MODIFY `id_bah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `desa`
