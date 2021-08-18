@@ -8,7 +8,7 @@ if (isset($_POST["kirim"])) {
 
     if ($nama_pro != "" || $tahun_pro != "") {
       $sql = mysqli_query($koneksi, "SELECT * FROM desa LEFT JOIN kecamatan ON desa.id_kecamatan = kecamatan.id_kecamatan WHERE nama_desa = '$nama_pro'
-        OR kabupaten = '$tahun_pro'") or die('error');
+        OR nama_kecamatan = '$tahun_pro'") or die('error');
       $jumlah_pencarian = mysqli_num_rows($sql);    
     if (mysqli_num_rows($sql) > 0) {
       while($row = mysqli_fetch_assoc($sql))

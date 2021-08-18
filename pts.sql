@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 14 Agu 2021 pada 05.02
+-- Waktu pembuatan: 18 Agu 2021 pada 03.17
 -- Versi server: 10.1.35-MariaDB
 -- Versi PHP: 7.2.9
 
@@ -49,12 +49,7 @@ INSERT INTO `desa` (`id_desa`, `id_kecamatan`, `kode_desa`, `nama_desa`, `kabupa
 (1, 9, '01221317', 'Bele Atu', 'Tinggi', 'Namsyiah', 'Camatan', '22535125', 'Bukit tinggi aja', '12435'),
 (2, 1, '01221325', 'Blang Ara', 'Tinggi', 'Siomi', 'Rareti', '2222', 'Pelemwulung', '55198'),
 (3, 3, '01221326', 'Tingkem Asli', 'Tinggi', 'Nona', 'Ana', '2324555', 'Tempelan', '33456'),
-(4, 4, '01221327', 'Tingkem Ori', 'Tinggi', 'Nana', 'Nina', '2324555', 'Tempelan', '33456'),
-(5, 5, '01221326', 'Ketandan', 'Rendah', 'Mama', 'Papa', '2324999', 'Ketandan Raya', '33457'),
-(6, 6, '01221632', 'Tingkem Palsu', 'Sedang', 'Mbuh', 'Rareti', '2324567', 'Yungalah', '33451'),
-(7, 7, '123456', 'babadan', 'banguntapan', 'sopo', 'kowe', '432341', 'jl mboh', '55198'),
-(8, 0, '123', 'Ketandan', 'Tinggi', 'Nana', 'Rareti', '123', 'qweeq', '123'),
-(9, 10, '321', 'Babadan Baru', 'Rendah', 'Nana', 'Nina', '321', 'qwer', '321');
+(4, 10, '01221412', 'Wih Pesam', 'Tinggi', 'Nana', 'Nina', '2324555', 'Tempelan', '33456');
 
 -- --------------------------------------------------------
 
@@ -214,7 +209,8 @@ CREATE TABLE `proyek` (
 INSERT INTO `proyek` (`id_proyek`, `nama_proyek`, `tahun_proyek`) VALUES
 (1, 'PTSL', '2020'),
 (2, 'PTSL', '2021'),
-(3, 'PTSL', '2022');
+(3, 'PTSL', '2022'),
+(4, 'PTSL', '2023');
 
 -- --------------------------------------------------------
 
@@ -265,11 +261,12 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `nama_user`, `user_nama`, `password`, `id_desa`, `id_level`, `id_proyek`) VALUES
-(1, 'Muhammad Solehudin', 'soleh', 'soleh', 9, 1, 2),
-(2, 'Alhalim Nova', 'basuki', 'basuki', 9, 3, 1),
+(1, 'Muhammad Solehudin', 'soleh', 'soleh', 2, 1, 2),
+(2, 'Alhalim Nova', 'basuki', 'basuki', 1, 3, 1),
 (4, 'Idal Ganda', 'idal', 'idal', 4, 2, 1),
 (5, 'Dimas Pitera A', 'dimas', 'dimas', 1, 1, 3),
-(6, 'Faris Taqiyuddin', 'faris', 'faris', 9, 4, 2);
+(6, 'Faris Taqiyuddin', 'faris', 'faris', 3, 4, 2),
+(7, 'pyuridis', 'py', 'py', 2, 2, 2);
 
 --
 -- Indexes for dumped tables
@@ -343,7 +340,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `desa`
 --
 ALTER TABLE `desa`
-  MODIFY `id_desa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_desa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `jenis_kelamin`
@@ -373,7 +370,7 @@ ALTER TABLE `penlok`
 -- AUTO_INCREMENT untuk tabel `proyek`
 --
 ALTER TABLE `proyek`
-  MODIFY `id_proyek` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_proyek` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `saksi`
@@ -385,7 +382,7 @@ ALTER TABLE `saksi`
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
