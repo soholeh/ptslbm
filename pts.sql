@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 18 Agu 2021 pada 03.17
+-- Waktu pembuatan: 18 Agu 2021 pada 03.23
 -- Versi server: 10.1.35-MariaDB
 -- Versi PHP: 7.2.9
 
@@ -21,6 +21,33 @@ SET time_zone = "+00:00";
 --
 -- Database: `pts`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `ahli_waris`
+--
+
+CREATE TABLE `ahli_waris` (
+  `id_ahli_waris` int(11) NOT NULL,
+  `nik_ahli_waris` varchar(255) NOT NULL,
+  `id_jk` int(11) NOT NULL,
+  `nama_ahli_waris` varchar(255) NOT NULL,
+  `temp_lahir_ahli_waris` varchar(255) NOT NULL,
+  `desa_ahli_waris` varchar(255) NOT NULL,
+  `tgl_lahir_ahli_waris` date DEFAULT NULL,
+  `kecamatan_ahli_waris` varchar(255) NOT NULL,
+  `pekerjaan_ahli_waris` varchar(255) NOT NULL,
+  `kabupaten_ahli_waris` varchar(255) NOT NULL,
+  `agama_ahli_waris` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `ahli_waris`
+--
+
+INSERT INTO `ahli_waris` (`id_ahli_waris`, `nik_ahli_waris`, `id_jk`, `nama_ahli_waris`, `temp_lahir_ahli_waris`, `desa_ahli_waris`, `tgl_lahir_ahli_waris`, `kecamatan_ahli_waris`, `pekerjaan_ahli_waris`, `kabupaten_ahli_waris`, `agama_ahli_waris`) VALUES
+(2, '1', 2, 'ab', 'ab                    ', 'ab', '2021-08-12', 'ab', 'ab                    ', 'ab', 'ab');
 
 -- --------------------------------------------------------
 
@@ -79,6 +106,53 @@ INSERT INTO `jabatan_ajudikasi` (`id_jabatan_ajudikasi`, `jabatan_ajudikasi`) VA
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `jenis_alas_hak`
+--
+
+CREATE TABLE `jenis_alas_hak` (
+  `id_jah` int(11) NOT NULL,
+  `nama_jah` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `jenis_alas_hak`
+--
+
+INSERT INTO `jenis_alas_hak` (`id_jah`, `nama_jah`) VALUES
+(1, 'Sertipikat'),
+(2, 'Pelelangan'),
+(3, 'Putusan Pemberian Hak'),
+(4, 'Jual Beli'),
+(5, 'Hibah-Pemberian'),
+(6, 'Warisan'),
+(7, 'Garap / Usaha Sendiri'),
+(8, 'Ganti Usaha');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `jenis_hak`
+--
+
+CREATE TABLE `jenis_hak` (
+  `id_jh` int(11) NOT NULL,
+  `nama_jh` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `jenis_hak`
+--
+
+INSERT INTO `jenis_hak` (`id_jh`, `nama_jh`) VALUES
+(1, 'Hak Milik'),
+(2, 'Hak Guna Bangunan'),
+(3, 'Hak Guna Usaha'),
+(4, 'Hak Pakai'),
+(5, 'Hak Wakaf');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `jenis_kelamin`
 --
 
@@ -94,6 +168,28 @@ CREATE TABLE `jenis_kelamin` (
 INSERT INTO `jenis_kelamin` (`id_jk`, `nama_jk`) VALUES
 (1, 'Pria'),
 (2, 'Wanita');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `jenis_pemohon`
+--
+
+CREATE TABLE `jenis_pemohon` (
+  `id_jenis_pemohon` int(11) NOT NULL,
+  `jenis_pemohon` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `jenis_pemohon`
+--
+
+INSERT INTO `jenis_pemohon` (`id_jenis_pemohon`, `jenis_pemohon`) VALUES
+(1, 'Perorangan'),
+(2, 'Badan Hukum'),
+(3, 'Pemerintah Kabupaten'),
+(4, 'Pemerintah Desa'),
+(5, 'BUMN');
 
 -- --------------------------------------------------------
 
@@ -121,6 +217,75 @@ INSERT INTO `kecamatan` (`id_kecamatan`, `nama_kecamatan`) VALUES
 (8, 'Syiah Utama'),
 (9, 'Timah Gajah'),
 (10, 'Wih Pesam');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `keluarga`
+--
+
+CREATE TABLE `keluarga` (
+  `id_keluarga` int(11) NOT NULL,
+  `nik_keluarga` varchar(255) NOT NULL,
+  `id_jk` int(11) NOT NULL,
+  `nama_keluarga` varchar(255) NOT NULL,
+  `temp_lahir_keluarga` varchar(255) NOT NULL,
+  `desa_keluarga` varchar(255) NOT NULL,
+  `tgl_lahir_keluarga` date NOT NULL,
+  `kecamatan_keluarga` varchar(255) NOT NULL,
+  `pekerjaan_keluarga` varchar(255) NOT NULL,
+  `kabupaten_keluarga` varchar(255) NOT NULL,
+  `agama_keluarga` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `klaster`
+--
+
+CREATE TABLE `klaster` (
+  `id_klaster` int(11) NOT NULL,
+  `nama_klaster` varchar(255) NOT NULL,
+  `keterangan_klaster` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `klaster`
+--
+
+INSERT INTO `klaster` (`id_klaster`, `nama_klaster`, `keterangan_klaster`) VALUES
+(1, 'K1', 'yang Ikut Mendaftarkan Tanahanya untuk di Sertipikatan'),
+(2, 'K2', 'Tanah yang Sengketa ( Pengadilan maupun mediasi di desa )'),
+(3, 'K3', 'tanah yang Subjeknya tidak di ketahui / Tidak ikut Mendaftarkan tanahnya untuk di Sertipikatkan'),
+(4, 'K4', 'Tanah yang sudah Terbit Sertipikat.');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `kuasa`
+--
+
+CREATE TABLE `kuasa` (
+  `id_kuasa` int(11) NOT NULL,
+  `nik_kuasa` varchar(255) NOT NULL,
+  `id_jk` int(11) NOT NULL,
+  `nama_kuasa` varchar(255) NOT NULL,
+  `temp_lahir_kuasa` varchar(255) NOT NULL,
+  `desa_kuasa` varchar(255) NOT NULL,
+  `tgl_lahir_kuasa` date NOT NULL,
+  `kecamatan_kuasa` varchar(255) NOT NULL,
+  `pekerjaan_kuasa` varchar(255) NOT NULL,
+  `kabupaten_kuasa` varchar(255) NOT NULL,
+  `agama_kuasa` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `kuasa`
+--
+
+INSERT INTO `kuasa` (`id_kuasa`, `nik_kuasa`, `id_jk`, `nama_kuasa`, `temp_lahir_kuasa`, `desa_kuasa`, `tgl_lahir_kuasa`, `kecamatan_kuasa`, `pekerjaan_kuasa`, `kabupaten_kuasa`, `agama_kuasa`) VALUES
+(2, '11', 2, 'a', 'a', 'aq', '2021-08-12', 'aa', 'aa', 'aa', 'aa');
 
 -- --------------------------------------------------------
 
@@ -169,6 +334,35 @@ INSERT INTO `panitia_ajudikasi` (`nama_pegawai`, `NIP`, `golongan`, `jabatan`, `
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `pemohon`
+--
+
+CREATE TABLE `pemohon` (
+  `nik` varchar(255) NOT NULL,
+  `id_jk` int(11) NOT NULL,
+  `id_desa` int(11) NOT NULL,
+  `id_kecamatan` int(11) NOT NULL,
+  `nama_pemohon` varchar(255) NOT NULL,
+  `no_telp` varchar(255) NOT NULL,
+  `tempat_lahir` varchar(255) NOT NULL,
+  `tanggal_lahir` date NOT NULL,
+  `pekerjaan` varchar(255) NOT NULL,
+  `agama` varchar(255) NOT NULL,
+  `kabupaten` varchar(255) NOT NULL,
+  `id_jenis_pemohon` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `pemohon`
+--
+
+INSERT INTO `pemohon` (`nik`, `id_jk`, `id_desa`, `id_kecamatan`, `nama_pemohon`, `no_telp`, `tempat_lahir`, `tanggal_lahir`, `pekerjaan`, `agama`, `kabupaten`, `id_jenis_pemohon`) VALUES
+('340189851223', 2, 1, 1, 'Irene', '08562165131', 'Seoul', '1999-08-06', 'Idol', 'Atheis', 'Bener Meriah', 5),
+('340189851333', 1, 3, 10, 'Leh Min Ho', '081227917430', 'Korea', '1993-12-01', 'Pedagang', 'Islam', 'Bener Meriah', 5);
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `penlok`
 --
 
@@ -189,6 +383,60 @@ CREATE TABLE `penlok` (
 INSERT INTO `penlok` (`id_penlok`, `id_proyek`, `id_desa`, `jumlah_persil`, `no_sk_penlok`, `tgl_sk_penlok`, `id_kecamatan`) VALUES
 (1, 2, 1, 1000, '41/KEP-100.02.UP.11.04/I/2020 ', '2021-08-05', '1'),
 (2, 2, 2, 1000, '41/KEP-100.02.UP.11.04/I/2020 ', '2021-08-05', '1');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `penyanggah`
+--
+
+CREATE TABLE `penyanggah` (
+  `id_penyanggah` int(11) NOT NULL,
+  `nik_penyanggah` varchar(255) NOT NULL,
+  `id_jk` int(11) NOT NULL,
+  `nama_penyanggah` varchar(255) NOT NULL,
+  `temp_lahir_penyanggah` varchar(255) NOT NULL,
+  `desa_penyanggah` varchar(255) NOT NULL,
+  `tgl_lahir_penyanggah` date NOT NULL,
+  `kecamatan_penyanggah` varchar(255) NOT NULL,
+  `pekerjaan_penyanggah` varchar(255) NOT NULL,
+  `kabupaten_penyanggah` varchar(255) NOT NULL,
+  `agama_penyanggah` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `penyanggah`
+--
+
+INSERT INTO `penyanggah` (`id_penyanggah`, `nik_penyanggah`, `id_jk`, `nama_penyanggah`, `temp_lahir_penyanggah`, `desa_penyanggah`, `tgl_lahir_penyanggah`, `kecamatan_penyanggah`, `pekerjaan_penyanggah`, `kabupaten_penyanggah`, `agama_penyanggah`) VALUES
+(2, '2222', 2, 'bb', 'bb', 'bb', '2021-08-12', 'bb', 'bb', 'bb', 'bb');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `pihak_pertama`
+--
+
+CREATE TABLE `pihak_pertama` (
+  `id_pihak_pertama` int(11) NOT NULL,
+  `nik_pihak_pertama` varchar(255) NOT NULL,
+  `id_jk` int(11) NOT NULL,
+  `nama_pihak_pertama` varchar(255) NOT NULL,
+  `temp_lahir_pihak_pertama` varchar(255) NOT NULL,
+  `desa_pihak_pertama` varchar(255) NOT NULL,
+  `tgl_lahir_pihak_pertama` date NOT NULL,
+  `kecamatan_pihak_pertama` varchar(255) NOT NULL,
+  `pekerjaan_pihak_pertama` varchar(255) NOT NULL,
+  `kabupaten_pihak_pertama` varchar(255) NOT NULL,
+  `agama_pihak_pertama` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `pihak_pertama`
+--
+
+INSERT INTO `pihak_pertama` (`id_pihak_pertama`, `nik_pihak_pertama`, `id_jk`, `nama_pihak_pertama`, `temp_lahir_pihak_pertama`, `desa_pihak_pertama`, `tgl_lahir_pihak_pertama`, `kecamatan_pihak_pertama`, `pekerjaan_pihak_pertama`, `kabupaten_pihak_pertama`, `agama_pihak_pertama`) VALUES
+(4, '212222', 2, 'a', 'a', 'a', '2021-08-12', 's', 'a', 'a', 'a');
 
 -- --------------------------------------------------------
 
@@ -243,6 +491,25 @@ INSERT INTO `saksi` (`id_saksi`, `nik_saksi`, `id_jk`, `nama_saksi`, `temp_lahir
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `status_surat`
+--
+
+CREATE TABLE `status_surat` (
+  `id_ss` int(11) NOT NULL,
+  `nama_ss` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `status_surat`
+--
+
+INSERT INTO `status_surat` (`id_ss`, `nama_ss`) VALUES
+(1, 'Asli'),
+(2, 'Foto Kopi');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `user`
 --
 
@@ -273,6 +540,12 @@ INSERT INTO `user` (`id_user`, `nama_user`, `user_nama`, `password`, `id_desa`, 
 --
 
 --
+-- Indeks untuk tabel `ahli_waris`
+--
+ALTER TABLE `ahli_waris`
+  ADD PRIMARY KEY (`id_ahli_waris`);
+
+--
 -- Indeks untuk tabel `desa`
 --
 ALTER TABLE `desa`
@@ -285,16 +558,52 @@ ALTER TABLE `jabatan_ajudikasi`
   ADD PRIMARY KEY (`id_jabatan_ajudikasi`);
 
 --
+-- Indeks untuk tabel `jenis_alas_hak`
+--
+ALTER TABLE `jenis_alas_hak`
+  ADD PRIMARY KEY (`id_jah`);
+
+--
+-- Indeks untuk tabel `jenis_hak`
+--
+ALTER TABLE `jenis_hak`
+  ADD PRIMARY KEY (`id_jh`);
+
+--
 -- Indeks untuk tabel `jenis_kelamin`
 --
 ALTER TABLE `jenis_kelamin`
   ADD PRIMARY KEY (`id_jk`);
 
 --
+-- Indeks untuk tabel `jenis_pemohon`
+--
+ALTER TABLE `jenis_pemohon`
+  ADD PRIMARY KEY (`id_jenis_pemohon`);
+
+--
 -- Indeks untuk tabel `kecamatan`
 --
 ALTER TABLE `kecamatan`
   ADD PRIMARY KEY (`id_kecamatan`);
+
+--
+-- Indeks untuk tabel `keluarga`
+--
+ALTER TABLE `keluarga`
+  ADD PRIMARY KEY (`id_keluarga`);
+
+--
+-- Indeks untuk tabel `klaster`
+--
+ALTER TABLE `klaster`
+  ADD PRIMARY KEY (`id_klaster`);
+
+--
+-- Indeks untuk tabel `kuasa`
+--
+ALTER TABLE `kuasa`
+  ADD PRIMARY KEY (`id_kuasa`);
 
 --
 -- Indeks untuk tabel `level`
@@ -309,10 +618,28 @@ ALTER TABLE `panitia_ajudikasi`
   ADD PRIMARY KEY (`NIP`);
 
 --
+-- Indeks untuk tabel `pemohon`
+--
+ALTER TABLE `pemohon`
+  ADD PRIMARY KEY (`nik`);
+
+--
 -- Indeks untuk tabel `penlok`
 --
 ALTER TABLE `penlok`
   ADD PRIMARY KEY (`id_penlok`);
+
+--
+-- Indeks untuk tabel `penyanggah`
+--
+ALTER TABLE `penyanggah`
+  ADD PRIMARY KEY (`id_penyanggah`);
+
+--
+-- Indeks untuk tabel `pihak_pertama`
+--
+ALTER TABLE `pihak_pertama`
+  ADD PRIMARY KEY (`id_pihak_pertama`);
 
 --
 -- Indeks untuk tabel `proyek`
@@ -327,6 +654,12 @@ ALTER TABLE `saksi`
   ADD PRIMARY KEY (`id_saksi`);
 
 --
+-- Indeks untuk tabel `status_surat`
+--
+ALTER TABLE `status_surat`
+  ADD PRIMARY KEY (`id_ss`);
+
+--
 -- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
@@ -337,10 +670,28 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT untuk tabel `ahli_waris`
+--
+ALTER TABLE `ahli_waris`
+  MODIFY `id_ahli_waris` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT untuk tabel `desa`
 --
 ALTER TABLE `desa`
   MODIFY `id_desa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT untuk tabel `jenis_alas_hak`
+--
+ALTER TABLE `jenis_alas_hak`
+  MODIFY `id_jah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT untuk tabel `jenis_hak`
+--
+ALTER TABLE `jenis_hak`
+  MODIFY `id_jh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `jenis_kelamin`
@@ -349,10 +700,34 @@ ALTER TABLE `jenis_kelamin`
   MODIFY `id_jk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT untuk tabel `jenis_pemohon`
+--
+ALTER TABLE `jenis_pemohon`
+  MODIFY `id_jenis_pemohon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT untuk tabel `kecamatan`
 --
 ALTER TABLE `kecamatan`
   MODIFY `id_kecamatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT untuk tabel `keluarga`
+--
+ALTER TABLE `keluarga`
+  MODIFY `id_keluarga` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `klaster`
+--
+ALTER TABLE `klaster`
+  MODIFY `id_klaster` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT untuk tabel `kuasa`
+--
+ALTER TABLE `kuasa`
+  MODIFY `id_kuasa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `level`
@@ -367,6 +742,18 @@ ALTER TABLE `penlok`
   MODIFY `id_penlok` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT untuk tabel `penyanggah`
+--
+ALTER TABLE `penyanggah`
+  MODIFY `id_penyanggah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT untuk tabel `pihak_pertama`
+--
+ALTER TABLE `pihak_pertama`
+  MODIFY `id_pihak_pertama` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT untuk tabel `proyek`
 --
 ALTER TABLE `proyek`
@@ -377,6 +764,12 @@ ALTER TABLE `proyek`
 --
 ALTER TABLE `saksi`
   MODIFY `id_saksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT untuk tabel `status_surat`
+--
+ALTER TABLE `status_surat`
+  MODIFY `id_ss` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
