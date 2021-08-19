@@ -15,20 +15,7 @@ include_once('../../../_header.php');
                      ?>
                     <div class="container-fluid">
                         <p>Entri Data Risalah Panitia Nomor Berkas :</p>
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">
-                                <a href="<?= base_url('admin/pemb_berkas');?>"> Berkas</a>
-                            </li>
-                            <li class="breadcrumb-item active">
-                                <a href="<?= base_url('admin/pemb_berkas/dokumen');?>"> Dokumen</a>
-                            </li>
-                            <li class="breadcrumb-item active">
-                                <a href="<?= base_url('admin/pemb_berkas/dokumen/entri/entri_pemohon.php');?>"> Entri</a>
-                            </li>
-                            <li class="breadcrumb-item active float-right">
-                                <a href="<?= base_url('admin/pemb_berkas/dokumen/entri/entri_pemohon.php');?>"> Cetak Risalah Panitia</a>
-                            </li>
-                        </ol>
+                        
 
 
 
@@ -70,13 +57,33 @@ function tambah($koneksi){
 	}
 
 	?> 
-	<dir class="row">
+	<div class="row" style="margin-top: -400px;">
+
 		<div class="col-xl-12">
+
 		<form action="" method="POST">
 			<div class="form-row">
 <!-- 					<fieldset> -->
 						<div class="table-responsive">
 							<table class="table table-responsive-sm table-hover">
+								<tr>
+									<td colspan="4">
+										<ol class="breadcrumb">
+				                            <li class="breadcrumb-item active">
+				                                <a href="<?= base_url('admin/pemb_berkas');?>"> Berkas</a>
+				                            </li>
+				                            <li class="breadcrumb-item active">
+				                                <a href="<?= base_url('admin/pemb_berkas/dokumen');?>"> Dokumen</a>
+				                            </li>
+				                            <li class="breadcrumb-item active">
+				                                <a href="<?= base_url('admin/pemb_berkas/dokumen/entri/entri_pemohon.php');?>"> Entri</a>
+				                            </li>
+				                            <li class="breadcrumb-item active float-right">
+				                                <a href="<?= base_url('admin/pemb_berkas/dokumen/entri/entri_pemohon.php');?>"> Cetak Risalah Panitia</a>
+				                            </li>
+				                        </ol>
+									</td>
+								</tr>
 								<tr>
 									<td colspan='4'>
 										<h3 class="text-center">RISALAH PENELITIAN DATA YURIDIS</h3>

@@ -6,12 +6,12 @@ include_once('../../../_header.php');
 			<div id="layoutSidenav_content">
             <main>
                     <?php 
-                    // if (!isset($_SESSION['admin'])) {
-                    //     echo    "<script>
-                    //             alert('Anda Bukan Admin');
-                    //             location='../menu/data.php';
-                    //         </script>";
-                    //     } 
+                    if (!isset($_SESSION['p_ukur']) AND !isset($_SESSION['admin'])) {
+                        echo    "<script>
+                                alert('Anda Bukan Admin');
+                                location='../../../pemb_berkas';
+                            </script>";
+                        } 
                      ?>
                     <div class="container-fluid">
                         <p>Entri Data Saksi Nomor Berkas :</p>
