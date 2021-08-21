@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 20 Agu 2021 pada 17.33
+-- Waktu pembuatan: 21 Agu 2021 pada 15.45
 -- Versi server: 10.1.39-MariaDB
 -- Versi PHP: 7.3.5
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `pengukuran` (
   `id_pengukuran` int(11) NOT NULL,
-  `id_pemohon` int(11) NOT NULL,
+  `nik_pemohon` int(11) NOT NULL,
   `id_alash` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
   `nub` int(11) NOT NULL,
@@ -48,7 +48,7 @@ CREATE TABLE `pengukuran` (
 -- Dumping data untuk tabel `pengukuran`
 --
 
-INSERT INTO `pengukuran` (`id_pengukuran`, `id_pemohon`, `id_alash`, `id_user`, `nub`, `luas_pengukuran`, `penggunaan_tanah`, `tanda_batas`, `no_pbt`, `no_gu`, `no_berkas_fisik`, `nib`, `id_klaster`) VALUES
+INSERT INTO `pengukuran` (`id_pengukuran`, `nik_pemohon`, `id_alash`, `id_user`, `nub`, `luas_pengukuran`, `penggunaan_tanah`, `tanda_batas`, `no_pbt`, `no_gu`, `no_berkas_fisik`, `nib`, `id_klaster`) VALUES
 (1, 1, 1, 1, 1, 1, '1', '1', 1, 1, 1, 1, 1),
 (4, 1, 0, 1, 2, 2, '2', '2', 2, 2, 2, 2, 4),
 (5, 1, 0, 4, 1, 1, '1', '1', 1, 1, 2, 2, 4),

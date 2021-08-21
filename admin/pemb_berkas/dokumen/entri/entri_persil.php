@@ -35,7 +35,7 @@ include_once('../../../_header.php');
 function tambah($koneksi){
 	
 	if (isset($_POST['btn_simpan'])){
-		$id_pemohon = $_POST['id_pemohon'];
+		$nik_pemohon = $_POST['nik_pemohon'];
 		$id_klaster = $_POST['id_klaster'];
 		$id_user = $_POST['id_user'];
         $nub = $_POST['nub'];
@@ -51,8 +51,8 @@ function tambah($koneksi){
 		if(!empty($nub) && !empty($luas_pengukuran) && !empty($penggunaan_tanah) && !empty($tanda_batas)){
 
 			$sql ="INSERT INTO pengukuran
-            (id_pemohon,id_klaster,id_user,nub,luas_pengukuran,penggunaan_tanah,tanda_batas,no_pbt,no_gu,no_berkas_fisik,nib)
-            VALUES('$id_pemohon','$id_klaster','$id_user','$nub','$luas_pengukuran','$penggunaan_tanah','$tanda_batas',
+            (nik_pemohon,id_klaster,id_user,nub,luas_pengukuran,penggunaan_tanah,tanda_batas,no_pbt,no_gu,no_berkas_fisik,nib)
+            VALUES('$nik_pemohon','$id_klaster','$id_user','$nub','$luas_pengukuran','$penggunaan_tanah','$tanda_batas',
             '$no_pbt','$no_gu','$no_berkas_fisik','$nib')";
 
 			$simpan = mysqli_query($koneksi, $sql);
@@ -85,7 +85,7 @@ function tambah($koneksi){
 										
 						        	 ?>
 									 <?php foreach ($datapemohon as $key => $value)?>
-							<td> : <input type="text" name="id_pemohon" value="<?= $value["id_pemohon"] ?>" hidden><?= $value["nama_pemohon"] ?> </td>
+							<td> : <input type="text" name="nik_pemohon" value="<?= $value["nik_pemohon"] ?>" hidden><?= $value["nama_pemohon"] ?> </td>
 						</tr>
 						<tr>
 							<td>Klaster </td>
@@ -185,8 +185,7 @@ function tambah($koneksi){
 function tampil_data($koneksi){
 	$sql = "SELECT * FROM pengukuran LEFT JOIN klaster ON pengukuran.id_klaster = klaster.id_klaster 
 	LEFT JOIN user ON pengukuran.id_user = user.id_user 
-	LEFT JOIN pemohon ON pengukuran.id_pemohon = pemohon.id_pemohon
-	LEFT JOIN desa ON pemohon.id_desa = desa.id_desa";
+	LEFT JOIN pemohon ON pengukuran.nik_pemohon = pemohon.nik_pemohon";
 	$query = mysqli_query($koneksi, $sql);
 	$nomor = 1;
 	
@@ -220,8 +219,8 @@ function tampil_data($koneksi){
 				<td><?php echo $data['nama_klaster']; ?></td>
 				<td><?php echo $data['nub']; ?></td>
 				<td><?php echo $data['nama_pemohon']; ?></td>
-				<td><?php echo $data['nik']; ?></td>
-				<td><?php echo $data['nama_desa']; ?></td>
+				<td><?php echo $data['nik_pemohon']; ?></td>
+				<td>Desa <?php echo $data['desa_pemohon'];?>, Kecamatan <?= $data['kecamatan_pemohon']; ?></td>
 				<td><?php echo $data['no_berkas_fisik']; ?></td>
 				<td><?php echo $data['no_pbt']; ?></td>
 				<td><?php echo $data['nib']; ?></td>
@@ -230,7 +229,7 @@ function tampil_data($koneksi){
 				<td><?php echo $data['tanda_batas']; ?></td>
 				<td><?php echo $data['nama_user']; ?></td>
 				<td>
-					<a href="entri_persil.php?aksi=update&id=<?php echo $data['id_pengukuran']; ?>&id_pemohon=<?php echo $data['id_pemohon']; ?>&id_klaster=<?php echo $data['id_klaster']; ?>&nub=<?php echo $data['nub']; ?>&luas_pengukuran=<?php echo $data['luas_pengukuran']; ?>&penggunaan_tanah=<?php echo $data['penggunaan_tanah']; ?>&tanda_batas=<?php echo $data['tanda_batas']; ?>&no_pbt=<?php echo $data['no_pbt']; ?>&no_gu=<?php echo $data['no_gu']; ?>&no_berkas_fisik=<?php echo $data['no_berkas_fisik']; ?>&nib=<?php echo $data['nib']; ?>&id_user=<?php echo $data['id_user']; ?>">Edit</a>
+					<a href="entri_persil.php?aksi=update&id=<?php echo $data['id_pengukuran']; ?>&nik_pemohon=<?php echo $data['nik_pemohon']; ?>&id_klaster=<?php echo $data['id_klaster']; ?>&nub=<?php echo $data['nub']; ?>&luas_pengukuran=<?php echo $data['luas_pengukuran']; ?>&penggunaan_tanah=<?php echo $data['penggunaan_tanah']; ?>&tanda_batas=<?php echo $data['tanda_batas']; ?>&no_pbt=<?php echo $data['no_pbt']; ?>&no_gu=<?php echo $data['no_gu']; ?>&no_berkas_fisik=<?php echo $data['no_berkas_fisik']; ?>&nib=<?php echo $data['nib']; ?>&id_user=<?php echo $data['id_user']; ?>">Edit</a>
 				</td>
 				<td>
 					<a href="entri_persil.php?aksi=delete&id=<?php echo $data['id_pengukuran']; ?>" onClick="return confirm('Yakin akan menghapus user <?= $data['id_pengukuran']; ?>?')">Hapus</a>
@@ -254,7 +253,7 @@ function ubah($koneksi){
 	// ubah data
 	if(isset($_POST['btn_ubah'])){
 		$id_pengukuran = $_POST['id_pengukuran'];
-		$id_pemohon = $_POST['id_pemohon'];
+		$nik_pemohon = $_POST['nik_pemohon'];
 		$id_klaster = $_POST['id_klaster'];
 		$id_user = $_POST['id_user'];
         $nub = $_POST['nub'];
@@ -268,7 +267,7 @@ function ubah($koneksi){
 
 		
 		if(!empty($nub) && !empty($luas_pengukuran) && !empty($penggunaan_tanah) && !empty($tanda_batas)){
-			$sql_update = "UPDATE pengukuran SET nub='$nub', id_pemohon='$id_pemohon', id_klaster='$id_klaster', luas_pengukuran='$luas_pengukuran',
+			$sql_update = "UPDATE pengukuran SET nub='$nub', nik_pemohon='$nik_pemohon', id_klaster='$id_klaster', luas_pengukuran='$luas_pengukuran',
 	            penggunaan_tanah='$penggunaan_tanah',
 	            tanda_batas='$tanda_batas', no_pbt='$no_pbt', no_gu='$no_gu' , no_berkas_fisik='$no_berkas_fisik', nib='$nib' 
 				WHERE id_pengukuran=$id_pengukuran";
@@ -312,7 +311,7 @@ function ubah($koneksi){
 										
 						        	 ?>
 									 <?php foreach ($datapemohon as $key => $value)?>
-							<td> : <input type="text" name="id_pemohon" value="<?php $_GET['id_pemohon']?><?= $value['nama_pemohon'] ?>" /></td>
+							<td> : <input type="text" name="nik_pemohon" value="<?php $_GET['nik_pemohon']?><?= $value['nama_pemohon'] ?>" /></td>
 						</tr>
 						<tr>
 							<td>Klaster </td>
