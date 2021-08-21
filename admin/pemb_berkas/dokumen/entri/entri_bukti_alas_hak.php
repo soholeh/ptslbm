@@ -110,7 +110,7 @@ function tambah($koneksi){
 									</div>
 									<div class="col-md-3">
 										<td> : 
-											<select name="id_jah" required>
+											<select id="txtPassportNumber"  name="id_jah" required onchange="EnableDisable(this)">
 									        	<?php 
 													$datajenis_alas_hak = array();
 													$sql = mysqli_query($koneksi, "SELECT * FROM jenis_alas_hak");
@@ -118,7 +118,7 @@ function tambah($koneksi){
 													    $datajenis_alas_hak[] = $jenis_alas_hak;
 													}
 												?>
-									            <option disabled selected value="">-Pilih Jenis Alas Hak-</option>
+									            <option  disabled selected value="">-Pilih Jenis Alas Hak-</option>
 									            <?php foreach ($datajenis_alas_hak as $key => $value):?>
 									            <option value="<?= $value["id_jah"] ?>"><?= $value["nama_jah"] ?></option>
 									            <?php endforeach ?>
@@ -132,7 +132,8 @@ function tambah($koneksi){
 									</div>
 									<div class="col-md-3">
 										<td>
-											<a href="entri_saksi.php" class="btn btn-secondary">Entri Saksi</a>
+										<input id="btnSubmit" disabled="disabled" type="button" onclick="location.href='entri_saksi.php';" value="Entri Saksi"/>
+										
 										</td>
 									</div>		
 								</tr>
@@ -1131,7 +1132,9 @@ function tambah($koneksi){
 
 // --- Fungsi Baca Data (Read)
 function tampil_data($koneksi){
-	$sql = "SELECT * FROM bukti_alas_hak LEFT JOIN jenis_alas_hak ON bukti_alas_hak.id_jah = jenis_alas_hak.id_jah LEFT JOIN klaster ON bukti_alas_hak.id_klaster = klaster.id_klaster LEFT JOIN status_surat ON bukti_alas_hak.id_ss = status_surat.id_ss";
+	$sql = "SELECT * FROM bukti_alas_hak LEFT JOIN jenis_alas_hak ON bukti_alas_hak.id_jah = jenis_alas_hak.id_jah 
+	LEFT JOIN klaster ON bukti_alas_hak.id_klaster = klaster.id_klaster 
+	LEFT JOIN status_surat ON bukti_alas_hak.id_ss = status_surat.id_ss";
 	$query = mysqli_query($koneksi, $sql);
 	$nomor = 1;
 	
@@ -2388,4 +2391,19 @@ if (isset($_GET['aksi'])){
                     }
                     );
             } );
+
+			function EnableDisable(txtPassportNumber) {
+            //Reference the Button.
+            var btnSubmit = document.getElementById("btnSubmit");
+
+            //Verify the TextBox value.
+            if (txtPassportNumber.value.trim() == "1") {
+                //Enable the TextBox when TextBox has value.
+                btnSubmit.disabled = false;
+            } else {
+                //Disable the TextBox when TextBox is empty.
+                btnSubmit.disabled = true;
+            }
+        };
+
         </script>
