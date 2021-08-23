@@ -65,7 +65,7 @@ function tambah($koneksi){
 					<table class="table table-responsive-sm table-hover" border="0">
 						<tr>
 							<td>Kode Desa </td>
-							<td> : <input type="number" name="kode_desa" required /></td>
+							<td> : <input type="text" name="kode_desa" required /></td>
 						</tr>
 						<tr>
 							<td>Nama Desa </td> 

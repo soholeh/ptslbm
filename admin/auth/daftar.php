@@ -18,7 +18,7 @@ if (isset($_SESSION['admin'])) {
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Daftar | PTSLBM</title>
+        <title>Daftar | PPDM</title>
         <!-- ikon -->
         <link rel="icon" href="../_assets/bener.jpg" type="image/gif" sizes="16x16">
         <link href="<?=base_url('admin/_assets/dist/css/styles.css')?>" rel="stylesheet" />
@@ -36,8 +36,7 @@ if (isset($_SESSION['admin'])) {
                             <div class="col-lg-8 offset-lg-2">
                                 <div class="card shadow-lg border-0 rounded-lg mt-4">
                                     <div class="card-header text-center bg-transparent">                                   
-                                        <h3>Pendaftaran Tanah Sistematis Lengkap (PTSL)</h3>
-                                        <h3>Kabupaten Bener Meriah</h3>
+                                        <h3>Pelayanan Pertanahan Desa Mandiri</h3>
 
                                     </div>
                                     <div class="card-body">
