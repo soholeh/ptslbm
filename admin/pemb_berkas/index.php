@@ -371,7 +371,7 @@ function insert($koneksi){
 						</td>
 					</tr>
 					<tr>
-						<td>Desa</td> 
+						<td>Proyek</td> 
 						<td> : 
 						<select name="id_proyek" required>
 						        	<?php 
@@ -389,8 +389,10 @@ function insert($koneksi){
 						</td>
 					</tr>
 					<tr>
-						<td>Banyak Berkas </td> 
-						<td> : <input type="text" name="countData" required/></td>
+						<td>Banyak Berkas :</td> 
+						 
+						<td>Nomor Awal <input type="number" name="nomor_berkas"></input></td>
+						<td>Nomor Akhir <input type="number" name="nomor_berkas2"></input></td>
 					</tr>
 					<tr>
 						<td></td>
@@ -416,17 +418,20 @@ function insert($koneksi){
 
 	<?php
 	if (isset($_POST['btn_simpan'])) {
-				 $nama_desa = $_POST['id_desa'];
-				 $nama_proyek = $_POST['id_proyek'];
-				 $countData = $_POST['countData'];
-				 if(isset($_POST['btn_simpan'])){
+		$nama_desa = $_POST['id_desa'];
+		$nama_proyek = $_POST['id_proyek'];
+	 $nomor_akhir = $_POST['nomor_berkas2'];
+	 $nomor_berkas = $_POST['nomor_berkas'];
+	 $null = 1;
+		if(isset($_POST['btn_simpan'])){
+		 $i=0;
+		 for ($i==$nomor_berkas ; $i<$nomor_akhir ; $i++){
+			 $nomor = $nomor_berkas++;
+	$sql = $koneksi->query("insert into berkas (id_desa,id_proyek,nomor_berkas) values('$nama_desa','$nama_proyek','$nomor')");
+		}}
 
-				 for ($i=0 ; $i<$countData ; $i++){
-				 
-			 $sql = $koneksi->query("insert into user (id_desa,id_proyek) values('$nama_desa','$nama_proyek')");
-				 }}
-			 if ($sql) {
-				 ?>
+	if ($sql) {
+		?>
 
 				 <script type="text/javascript">
 					 alert("Data Berhasil di Simpan");
