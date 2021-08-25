@@ -1,14 +1,14 @@
 <?php require_once "../_config/config.php"; 
 if (isset($_SESSION['admin'])) {
-    header("location: ../data_desa");
+    header("location: ../dashboard");
     } else if (isset($_SESSION['pemilik'])) { //iki else if ke loro mengerror iki mung tambahan ra kanggo nggo ganti error 
-    header("location: ../pemb_berkas");
+    header("location: ../dashboard");
     } else if (isset($_SESSION['p_yuridis'])) {
-    header("location: ../pemb_berkas");
+    header("location: ../dashboard");
     } else if (isset($_SESSION['p_pengukuran'])) {
-    header("location: ../pemb_berkas");
+    header("location: ../dashboard");
     } else if (isset($_SESSION['p_desa'])) {
-    header("location: ../pemb_berkas");
+    header("location: ../dashboard");
     } else { 
 ?>
 
@@ -20,7 +20,7 @@ if (isset($_SESSION['admin'])) {
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Login | PTSLBM</title>
+        <title>Login | PPDM</title>
         <!-- ikon -->
         <link rel="icon" href="../_assets/bener.jpg" type="image/gif" sizes="16x16">
         <link href="<?=base_url('admin/_assets/dist/css/styles.css')?>" rel="stylesheet" />
@@ -38,8 +38,7 @@ if (isset($_SESSION['admin'])) {
                             <div class="col-lg-8 offset-lg-2">
                                 <div class="card shadow-lg border-0 rounded-lg mt-4">
                                     <div class="card-header text-center bg-transparent">                                   
-                                        <h3>Pendaftaran Tanah Sistematis Lengkap (PTSL)</h3>
-                                        <h3>Kabupaten Bener Meriah</h3>
+                                        <h3>Pelayanan Pertanahan Desa Mandiri</h3>
 
                                     </div>
                                     <div class="card-body">
@@ -86,25 +85,25 @@ if (isset($_POST['login'])) {
             $_SESSION['admin'] = $data;
             echo    "<script>
                 alert('Anda Berhasil Login');
-                location='../data_desa';
+                location='../dashboard';
             </script>";
         } else if ($data['nama_level'] == "Petugas Yuridis") {
             $_SESSION['p_yuridis'] = $data;
             echo    "<script>
                 alert('Anda Berhasil Login');
-                location='../pemb_berkas';
+                location='../dashboard';
             </script>";
         } else if ($data['nama_level'] == "Petugas Pengukuran") {
             $_SESSION['p_ukur'] = $data;
             echo    "<script>
                 alert('Anda Berhasil Login');
-                location='../pemb_berkas';
+                location='../dashboard';
             </script>";
         } else if ($data['nama_level'] == "Petugas Desa") {
             $_SESSION['p_desa'] = $data;
             echo    "<script>
                 alert('Anda Berhasil Login');
-                location='../pemb_berkas';
+                location='../dashboard';
             </script>";
         }
     }else { ?>
