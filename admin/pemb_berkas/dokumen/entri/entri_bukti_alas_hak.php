@@ -110,7 +110,7 @@ function tambah($koneksi){
 									</div>
 									<div class="col-md-3">
 										<td> : 
-											<select id="txtPassportNumber"  name="id_jah" required onchange="EnableDisable(this)">
+											<select id="hiddenForm"  name="id_jah" required onchange="HiddenEnable(this)">
 									        	<?php 
 													$datajenis_alas_hak = array();
 													$sql = mysqli_query($koneksi, "SELECT * FROM jenis_alas_hak");
@@ -132,7 +132,7 @@ function tambah($koneksi){
 									</div>
 									<div class="col-md-3">
 										<td>
-										<input id="btnSubmit" disabled="disabled" type="button" onclick="location.href='entri_saksi.php';" value="Entri Saksi"/>
+										<input id="btnSubmitSaksi" disabled="disabled" type="button" onclick="location.href='entri_saksi.php';" value="Entri Saksi"/>
 										
 										</td>
 									</div>		
@@ -297,9 +297,9 @@ function tambah($koneksi){
 										</td>
 									</div>
 									<div class="col-md-3">
-										<td>
-											<a href="entri_pihak_pertama.php" class="btn btn-secondary">Entri Pihak I</a>
-										</td>
+									<td>
+										<input id="btnSubmitPihak1" disabled="disabled" type="button" onclick="location.href='entri_pihak_pertama.php';" value="Entri Pihak I"/>
+									</td>
 									</div>		
 								</tr>
 								<tr>
@@ -423,9 +423,9 @@ function tambah($koneksi){
 										</td>
 									</div>
 									<div class="col-md-3">
-										<td>
-											<a href="entri_persetujuan_keluarga.php" class="btn btn-secondary">Persetujuan Keluarga</a>
-										</td>
+									<td>
+										<input id="btnSubmitPersetujuanKel" disabled="disabled" type="button" onclick="location.href='entri_persetujuan_keluarga.php';" value="Entri Persetujuan Keluarga"/>
+									</td>
 									</div>		
 								</tr>
 								<tr>
@@ -609,7 +609,7 @@ function tambah($koneksi){
 									</div>
 									<div class="col-md-3">
 										<td> : 
-											<input type="number" name="harga">
+											<input id="inputHiddenharga" hidden="hidden" type="number" name="harga">
 										</td>
 									</div>	
 									<div class="col-md-3">
@@ -712,7 +712,7 @@ function tambah($koneksi){
 									</div>
 									<div class="col-md-3">
 										<td> :
-											<input type="text" name="nama_almarhum">
+											<input id="inputHiddennamaAlm" hidden="hidden" type="text" name="nama_almarhum">
 										</td>
 									</div>	
 									<div class="col-md-3">
@@ -777,9 +777,9 @@ function tambah($koneksi){
 										</td>
 									</div>
 									<div class="col-md-3">
-										<td>
-											<a href="entri_ahli_waris.php" class="btn btn-secondary">Ahli Waris</a>
-										</td>
+									<td>
+										<input id="btnSubmitAhliWaris" disabled="disabled" type="button" onclick="location.href='entri_ahli_waris.php';" value="Entri Ahli Waris"/>
+									</td>
 									</div>	
 									<div class="col-md-1">
 										<td>
@@ -813,7 +813,7 @@ function tambah($koneksi){
 									</div>
 									<div class="col-md-3">
 										<td> :
-											<input type="date" name="tgl_meninggal">
+											<input id="inputHiddentglAlm" hidden="hidden" type="date" name="tgl_meninggal">
 										</td>
 									</div>	
 									<div class="col-md-3">
@@ -873,7 +873,7 @@ function tambah($koneksi){
 									</div>
 									<div class="col-md-3">
 										<td> :
-											<input type="text" name="desa_meninggal">
+											<input id="inputHiddendesaAlm" hidden="hidden" type="text" name="desa_meninggal">
 										</td>
 									</div>	
 									<div class="col-md-3">
@@ -933,7 +933,7 @@ function tambah($koneksi){
 									</div>
 									<div class="col-md-3">
 										<td> :
-											<input type="text" name="kecamatan_meninggal">
+											<input id="inputHiddenkecamatanAlm" hidden="hidden" type="text" name="kecamatan_meninggal">
 										</td>
 									</div>	
 									<div class="col-md-3">
@@ -968,7 +968,7 @@ function tambah($koneksi){
 									</div>
 									<div class="col-md-3">
 										<td> :
-											<input type="text" name="kabupaten_meninggal">
+											<input id="inputHiddenkabupatenAlm" hidden="hidden" type="text" name="kabupaten_meninggal">
 										</td>
 									</div>	
 									<div class="col-md-3">
@@ -1037,7 +1037,7 @@ function tambah($koneksi){
 									</div>
 									<div class="col-md-3">
 										<td> :
-											<input type="text" name="desa_akhir">
+											<input id="inputHiddendesaAkhir" hidden="hidden" type="text" name="desa_akhir">
 										</td>
 									</div>	
 									<div class="col-md-3">
@@ -1072,7 +1072,7 @@ function tambah($koneksi){
 									</div>
 									<div class="col-md-3">
 										<td> :
-											<input type="text" name="kecamatan_akhir">
+											<input id="inputHiddenkecAkhir" hidden="hidden" type="text" name="kecamatan_akhir">
 										</td>
 									</div>
 								</tr>
@@ -1082,7 +1082,7 @@ function tambah($koneksi){
 									</div>
 									<div class="col-md-3">
 										<td> :
-											<input type="text" name="kabupaten_akhir">
+											<input id="inputHiddenkabuAkhir" hidden="hidden" type="text" name="kabupaten_akhir">
 										</td>
 									</div>
 								</tr>
@@ -1092,7 +1092,7 @@ function tambah($koneksi){
 									</div>
 									<div class="col-md-3">
 										<td> :
-											<input type="text" name="kawin_dengan">
+											<input id="inputHiddenkawinDengan" hidden="hidden" type="text" name="kawin_dengan">
 										</td>
 									</div>
 								</tr>
@@ -2392,17 +2392,121 @@ if (isset($_GET['aksi'])){
                     );
             } );
 
-			function EnableDisable(txtPassportNumber) {
+			function HiddenEnable(value) {
+            enable(value);
+            hidden(value);
+        }
+
+        function enable(hiddenForm) {
             //Reference the Button.
-            var btnSubmit = document.getElementById("btnSubmit");
+            var btnSubmitSaksi = document.getElementById("btnSubmitSaksi");
+			var btnSubmitPihak1 = document.getElementById("btnSubmitPihak1");
+			var btnSubmitPersetujuanKel = document.getElementById("btnSubmitPersetujuanKel");
+			var btnSubmitAhliWaris = document.getElementById("btnSubmitAhliWaris");
 
             //Verify the TextBox value.
-            if (txtPassportNumber.value.trim() == "1") {
+            if (hiddenForm.value.trim() == "1") {
                 //Enable the TextBox when TextBox has value.
-                btnSubmit.disabled = false;
-            } else {
+				btnSubmitSaksi.disabled = true;
+				btnSubmitPihak1.disabled = true;
+				btnSubmitPersetujuanKel.disabled = true;
+				btnSubmitAhliWaris.disabled = true;
+            } else if (hiddenForm.value.trim() == "2"){
+				btnSubmitSaksi.disabled = false;
+				btnSubmitPihak1.disabled = true;
+				btnSubmitPersetujuanKel.disabled = true;
+				btnSubmitAhliWaris.disabled = true;
+			} else if (hiddenForm.value.trim() == "3"){
+				btnSubmitSaksi.disabled = false;
+				btnSubmitPihak1.disabled = true;
+				btnSubmitPersetujuanKel.disabled = true;
+				btnSubmitAhliWaris.disabled = true;
+			} else if (hiddenForm.value.trim() == "4"){
+				btnSubmitSaksi.disabled = false;
+				btnSubmitPihak1.disabled = false;
+				btnSubmitPersetujuanKel.disabled = true;
+				btnSubmitAhliWaris.disabled = true;
+
+			} else if (hiddenForm.value.trim() == "5"){
+				btnSubmitSaksi.disabled = false;
+				btnSubmitPihak1.disabled = false;
+				btnSubmitPersetujuanKel.disabled = false;
+				btnSubmitAhliWaris.disabled = true;
+				
+			} else if (hiddenForm.value.trim() == "6"){
+				btnSubmitSaksi.disabled = false;
+				btnSubmitAhliWaris.disabled = false;
+				btnSubmitPihak1.disabled = true;
+				btnSubmitPersetujuanKel.disabled = true;
+
+
+			} else if (hiddenForm.value.trim() == "7"){
+				btnSubmitSaksi.disabled = false;
+				btnSubmitPihak1.disabled = false;
+				btnSubmitPersetujuanKel.disabled = true;
+				btnSubmitAhliWaris.disabled = true;
+				
+			} else if (hiddenForm.value.trim() == "8"){
+				btnSubmitSaksi.disabled = false;
+				btnSubmitPihak1.disabled = false;
+				btnSubmitPersetujuanKel.disabled = true;
+				btnSubmitAhliWaris.disabled = true;
+			}
+			else {
                 //Disable the TextBox when TextBox is empty.
-                btnSubmit.disabled = true;
+                btnSubmitSaksi.disabled = true;
+				btnSubmitPihak1.disabled = true;
+				btnSubmitPersetujuanKel.disabled = true;
+				btnSubmitAhliWaris.disabled = true;
+            }
+        };
+
+        function hidden(hiddenForm) {
+            //Reference the Button.
+            var inputHiddenharga = document.getElementById("inputHiddenharga");
+			var inputHiddennamaAlm = document.getElementById("inputHiddennamaAlm");
+			var inputHiddentglAlm = document.getElementById("inputHiddentglAlm");
+			var inputHiddendesaAlm = document.getElementById("inputHiddendesaAlm");
+			var inputHiddenkecamatanAlm = document.getElementById("inputHiddenkecamatanAlm");
+			var inputHiddenkabupatenAlm = document.getElementById("inputHiddenkabupatenAlm");
+			var inputHiddendesaAkhir = document.getElementById("inputHiddendesaAkhir");
+			var inputHiddenkecAkhir = document.getElementById("inputHiddenkecAkhir");
+			var inputHiddenkabuAkhir = document.getElementById("inputHiddenkabuAkhir");
+			var inputHiddenkawinDengan = document.getElementById("inputHiddenkawinDengan");
+			
+
+            //Verify the TextBox value.
+            if (hiddenForm.value.trim() == "4") {
+                //Visible the TextBox when TextBox has value.
+                inputHiddenharga.hidden = false;
+
+            } else if (hiddenForm.value.trim() == "8"){
+                //Visible the TextBox when TextBox has value.
+                inputHiddenharga.hidden = false;
+				
+            } else if (hiddenForm.value.trim()== "6"){
+				inputHiddennamaAlm.hidden = false;
+				inputHiddentglAlm.hidden = false;
+				inputHiddendesaAlm.hidden = false;
+				inputHiddenkecamatanAlm.hidden = false;
+				inputHiddenkabupatenAlm.hidden = false;
+				inputHiddendesaAkhir.hidden = false;
+				inputHiddenkecAkhir.hidden = false;
+				inputHiddenkabuAkhir.hidden = false;
+				inputHiddenkawinDengan.hidden = false;
+			}
+            else {
+                //Hidden the TextBox when TextBox is empty.
+                inputHiddenharga.hidden = true;
+				inputHiddennamaAlm.hidden = true;
+				inputHiddentglAlm.hidden = true;
+				inputHiddendesaAlm.hidden = true;
+				inputHiddenkecamatanAlm.hidden = true;
+				inputHiddenkabupatenAlm.hidden = true;
+				inputHiddendesaAkhir.hidden = true;
+				inputHiddenkecAkhir.hidden = true;
+				inputHiddenkabuAkhir.hidden = true;
+				inputHiddenkawinDengan.hidden = true;
             }
         };
 
