@@ -7,8 +7,21 @@ if (isset($_POST["kirim"])) {
     $tahun_pro = $_POST["tahun_pro"];
 
     if ($nama_pro != "" || $tahun_pro != "") {
-      $sql = mysqli_query($koneksi, "SELECT * FROM desa LEFT JOIN kecamatan ON desa.id_kecamatan = kecamatan.id_kecamatan WHERE nama_desa = '$nama_pro'
-        OR nama_kecamatan = '$tahun_pro'") or die('error');
+      $sql = mysqli_query($koneksi, "SELECT nama_desa, nama_kecamatan, tahun_proyek, nama_klaster, SUM(luas_pengukuran) AS lp 
+        FROM desa 
+         JOIN kecamatan 
+        ON desa.id_kecamatan = kecamatan.id_kecamatan 
+         JOIN user
+        ON desa.id_desa = user.id_desa
+         JOIN pengukuran
+        ON user.id_user = pengukuran.id_user
+         JOIN klaster
+        ON pengukuran.id_klaster = klaster.id_klaster
+         JOIN proyek
+        ON user.id_proyek = proyek.id_proyek
+        WHERE nama_proyek = '$nama_pro'
+        OR tahun_proyek = '$tahun_pro'
+        GROUP BY nama_desa") or die('error');
       $jumlah_pencarian = mysqli_num_rows($sql);    
     if (mysqli_num_rows($sql) > 0) {
       while($row = mysqli_fetch_assoc($sql))
@@ -102,13 +115,13 @@ if (isset($_POST["kirim"])) {
                                                 <td><?= $key+1;?></td>
                                                 <td><?= $value["nama_desa"];?></td>
                                                 <td><?= $value["nama_kecamatan"];?></td>
-                                                <td><?= $value["kabupaten"];?></td>
-                                                <td><?= $value["kode_desa"];?></td>
-                                                <td><?= $value["reje_kampung"];?></td>
-                                                <td><?= $value["nama_camat"];?></td>
-                                                <td><?= $value["nip"];?></td>
-                                                <td><?= $value["alamat"];?></td>
-                                                <td><?= $value["kode_pos"];?></td>
+                                                <td><?= $value["tahun_proyek"];?></td>
+                                                <td><?= $value["nama_klaster"];?></td>
+                                                <td><?= $value["nama_klaster"];?></td>
+                                                <td><?= $value["nama_klaster"];?></td>
+                                                <td><?= $value["nama_klaster"];?></td>
+                                                <td><?= $value["nama_klaster"];?></td>
+                                                <td><?= $value["lp"];?></td>
                                             </tr>
                                             <?php endforeach ?>
                                         </tbody>
