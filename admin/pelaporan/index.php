@@ -7,7 +7,7 @@ if (isset($_POST["kirim"])) {
     $tahun_pro = $_POST["tahun_pro"];
 
     if ($nama_pro != "" || $tahun_pro != "") {
-      $sql = mysqli_query($koneksi, "SELECT nama_desa, nama_kecamatan, tahun_proyek, nama_klaster, SUM(luas_pengukuran) AS lp 
+      $sql = mysqli_query($koneksi, "SELECT nama_desa, nama_kecamatan, tahun_proyek, COUNT(nama_klaster) AS nk, SUM(luas_pengukuran) AS lp 
         FROM desa 
          JOIN kecamatan 
         ON desa.id_kecamatan = kecamatan.id_kecamatan 
@@ -111,16 +111,17 @@ if (isset($_POST["kirim"])) {
                                         <?php if (isset($_POST["kirim"])): ?> 
                                         <tbody>
                                             <?php foreach ($semuadata as $key => $value):?>
+                                              <?php $sub = $value["nk"]+$value["nk"]+$value["nk"]+$value["nk"]; ?>
                                             <tr>
                                                 <td><?= $key+1;?></td>
                                                 <td><?= $value["nama_desa"];?></td>
                                                 <td><?= $value["nama_kecamatan"];?></td>
                                                 <td><?= $value["tahun_proyek"];?></td>
-                                                <td><?= $value["nama_klaster"];?></td>
-                                                <td><?= $value["nama_klaster"];?></td>
-                                                <td><?= $value["nama_klaster"];?></td>
-                                                <td><?= $value["nama_klaster"];?></td>
-                                                <td><?= $value["nama_klaster"];?></td>
+                                                <td><?= $value["nk"];?></td>
+                                                <td><?= $value["nk"];?></td>
+                                                <td><?= $value["nk"];?></td>
+                                                <td><?= $value["nk"];?></td>
+                                                <td><?= $sub;?></td>
                                                 <td><?= $value["lp"];?></td>
                                             </tr>
                                             <?php endforeach ?>
